@@ -24,7 +24,11 @@ Python3のみ対応です。
 
 ## javascript
 
-javascriptのプログラムです。
+javascriptのプログラムです。JSのライブラリの使い方など
+
+バックエンドのNode.js, Express.js
+
+フロントエンドのAngular, React, Vueなど
 
 
 
