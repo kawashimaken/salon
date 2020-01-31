@@ -34,9 +34,13 @@ javascriptのプログラムです。JSのライブラリの使い方など
 
 # その他
 
-* 川島の著書のRepo:https://github.com/Kokensha/book-ml
+## 川島の著書のRepo
 
-* 川島主催のハンズオンのRepo:https://github.com/Kokensha/machine_learning_deep_learning_lessons
+https://github.com/Kokensha/book-ml
+
+## 川島主催のハンズオンのRepo
+
+https://github.com/Kokensha/machine_learning_deep_learning_lessons
 
 
 
