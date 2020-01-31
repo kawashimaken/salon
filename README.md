@@ -10,11 +10,15 @@
 
 # フォルダ説明
 
-* python
+## python
 
 単独で実行できるPython プログラムです。
 
 Python3のみ対応です。
+
+## javascript
+
+javascriptのプログラムです。
 
 
 
