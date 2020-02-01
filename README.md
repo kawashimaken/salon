@@ -32,7 +32,7 @@ javascriptのプログラムです。JSのライブラリの使い方など
 
 # 別Repoでメンテするコンテンツ
 
-## PHP
+## PHP（Docker+Linux+Apache+MySQL+PHP）
 https://github.com/kawashimaken/docker-lamp-lesson
 
 ## Flask/bottle(Python ウェブアプリケーションフレームワーク)
