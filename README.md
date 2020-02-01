@@ -36,6 +36,14 @@ javascriptのプログラムです。JSのライブラリの使い方など
 
 PHPのプログラムです。
 
+## pytorch
+
+pytorchで作成した機械学習、深層学習プログラムです。
+
+## tensorflow
+
+tensorflowで作成した機械学習、深層学習プログラムです。
+
 
 # 別Repoでメンテするコンテンツ
 
