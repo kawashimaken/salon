@@ -8,3 +8,9 @@ pip install uvicorn
 uvicorn main:app --reload
 
 '''
+
+
+
+# fastpai
+
+* https://fastapi.tiangolo.com/
