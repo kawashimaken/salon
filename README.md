@@ -24,11 +24,14 @@ Python3のみ対応です。
 
 ## javascript
 
+フロントエンドのAngular, React, Vueなど
+
+## nodejs
+
 javascriptのプログラムです。JSのライブラリの使い方など
 
 バックエンドのNode.js, Express.js
 
-フロントエンドのAngular, React, Vueなど
 
 # 別Repoでメンテするコンテンツ
 
