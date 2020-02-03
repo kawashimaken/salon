@@ -14,18 +14,24 @@ transform = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
+# ミニバッチのサイズ
+BATCH_SIZE = 10
+# 最大学習回数
+MAX_EPOCH = 4
+
+
 # 学習データ
 train_data_with_teacher_labels = torchvision.datasets.CIFAR100(
     root='./data', train=True, download=True, transform=transform)
 train_data_loader = torch.utils.data.DataLoader(train_data_with_teacher_labels,
-                                                batch_size=4,
+                                                batch_size=BATCH_SIZE,
                                                 shuffle=True,
                                                 num_workers=2)
 # 検証データ
 test_data_with_teacher_labels = torchvision.datasets.CIFAR100(
     root='./data', train=False, download=True, transform=transform)
 test_data_loader = torch.utils.data.DataLoader(test_data_with_teacher_labels,
-                                               batch_size=4,
+                                               batch_size=BATCH_SIZE,
                                                shuffle=False,
                                                num_workers=2)
 
@@ -75,8 +81,7 @@ model = CNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = optimizer.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-# 最大学習回数
-MAX_EPOCH = 4
+
 
 #
 for epoch in range(MAX_EPOCH):
@@ -103,9 +108,9 @@ for epoch in range(MAX_EPOCH):
         total_loss += loss.item()
 
         # 2000ミニバッチずつ、進捗を表示します
-        if i % 4000 == 3999:
+        if i % 2000 == 1999:
             print('学習進捗：[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, total_loss / 4000))
+                  (epoch + 1, i + 1, total_loss / 2000))
             total_loss = 0.0
 
 print('学習完了')
@@ -117,7 +122,9 @@ with torch.no_grad():
         test_data, teacher_labels = data
         results = model(test_data)
         _, predicted = torch.max(results.data, 1)
+        # teacher_labels.size(0)=4 一セットのtest_dataは４枚の画像
         total += teacher_labels.size(0)
+
         count_when_correct += (predicted == teacher_labels).sum().item()
 
 print('10000 検証画像に対しての正解率: %d %%' % (100 * count_when_correct / total))
@@ -129,17 +136,21 @@ with torch.no_grad():
     for data in test_data_loader:
         #
         test_data, teacher_labels = data
+        # test_dataのshapeはtorch.Size([4, 3, 32, 32])
         #
         results = model(test_data)
+        # resultsのshapeはtorch.Size([4, 100])
         # 最大値を取り出す
         _, predicted = torch.max(results, 1)
+        # predictedのshapleはtorch.Size([4])
         # 予測が教師ラベルと一致する場合、次元を圧縮する
-        c = (predicted == teacher_labels).squeeze()
+        # trueの個数（何個正解したか）
+        correctly_preidicted = (predicted == teacher_labels).squeeze()
         #
-        for i in range(4):
+        for i in range(BATCH_SIZE):
             label = teacher_labels[i]
             #
-            class_correct[label] += c[i].item()
+            class_correct[label] += correctly_preidicted[i].item()
             class_total[label] += 1
 
 for i in range(100):
