@@ -1,6 +1,6 @@
 PyTorchを使ったプログラムです。
 
-## mnist.py
+## [mnist.py](mnist.py)
 
 手書き数字認識　http://yann.lecun.com/exdb/mnist/
 
