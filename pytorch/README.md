@@ -1,4 +1,8 @@
 PyTorchを使ったプログラムです。
+```
+pip install torch
+pip install torchvision
+```
 
 ## [mnist.py](mnist.py)
 
@@ -16,6 +20,8 @@ PyTorchを使ったプログラムです。
 
 MNISTの拡張　https://www.westernsydney.edu.au/bens/home/reproducible_research/emnist
 
+データダウンロード、時間がかかる
+
 ## [qmnist.py](qmnist.py)
 
 MNISTデータの再構築　
@@ -26,4 +32,10 @@ https://github.com/facebookresearch/qmnist
 
 ## [cifar10.py](cifar10.py)
 
-CIFAR-10の画像分類（十種類）　https://www.cs.toronto.edu/~kriz/cifar.html
+CIFAR-10の画像分類（10種類）　https://www.cs.toronto.edu/~kriz/cifar.html
+
+## [cifar100.py](cifar100.py)
+
+CIFAR-100の画像分類（100種類）　https://www.cs.toronto.edu/~kriz/cifar.html
+
+学習、やや時間がかかる
