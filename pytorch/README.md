@@ -18,7 +18,11 @@ MNISTの拡張　https://www.westernsydney.edu.au/bens/home/reproducible_researc
 
 ## [qmnist.py](qmnist.py)
 
-MNISTデータの再構築　https://www.nist.gov/srd/nist-special-database-19　からの再構築　https://github.com/facebookresearch/qmnist
+MNISTデータの再構築　
+
+https://www.nist.gov/srd/nist-special-database-19　
+からの再構築
+https://github.com/facebookresearch/qmnist
 
 ## [cifar10.py](cifar10.py)
 
