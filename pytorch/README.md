@@ -12,6 +12,10 @@ PyTorchを使ったプログラムです。
 
 崩字の認識　https://github.com/rois-codh/kmnist
 
+## [emnist.py](emnist.py)
+
+MNISTの拡張　https://www.westernsydney.edu.au/bens/home/reproducible_research/emnist
+
 ## [cifar10.py](cifar10.py)
 
 CIFAR-10の画像分類（十種類）　https://www.cs.toronto.edu/~kriz/cifar.html
