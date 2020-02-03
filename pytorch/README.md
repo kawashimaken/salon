@@ -4,6 +4,11 @@ pip install torch
 pip install torchvision
 ```
 
+実行するには、下記のコマンドを実行してください。
+```
+python xxxx.py
+```
+
 ## [mnist.py](mnist.py)
 
 手書き数字認識　http://yann.lecun.com/exdb/mnist/
