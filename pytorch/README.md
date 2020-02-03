@@ -16,6 +16,10 @@ PyTorchを使ったプログラムです。
 
 MNISTの拡張　https://www.westernsydney.edu.au/bens/home/reproducible_research/emnist
 
+## [qmnist.py](qmnist.py)
+
+MNISTデータの再構築　https://www.nist.gov/srd/nist-special-database-19　からの再構築　https://github.com/facebookresearch/qmnist
+
 ## [cifar10.py](cifar10.py)
 
 CIFAR-10の画像分類（十種類）　https://www.cs.toronto.edu/~kriz/cifar.html
