@@ -136,9 +136,11 @@ with torch.no_grad():
     for data in test_data_loader:
         #
         test_data, teacher_labels = data
+        # print('test_data.shape',test_data.shape)
         # test_dataのshapeはtorch.Size([4, 3, 32, 32])
         #
         results = model(test_data)
+        # print('results.shape',results.shape)
         # resultsのshapeはtorch.Size([4, 100])
         # 最大値を取り出す
         _, predicted = torch.max(results, 1)
@@ -149,8 +151,9 @@ with torch.no_grad():
         #
         for i in range(BATCH_SIZE):
             label = teacher_labels[i]
-            #
+            # クラスごとに、正確に推論した数の累計
             class_correct[label] += correctly_preidicted[i].item()
+            # 正解教師ラベル数の累計
             class_total[label] += 1
 
 for i in range(100):

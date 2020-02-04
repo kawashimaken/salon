@@ -1,0 +1,26 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+<!-- firebaseの firebaseConfigの部分をsecret.jsファイルにコピーして、作っておいて、ここで読み込む -->
+<script src="secret.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  //
+  var db = firebase.firestore();
+  //
+  db.collection("test_time_demo").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        //console.log(`${doc.id} => ${doc.data()}`);
+        console.log(doc.data())
+        console.log(doc.data().changed_at)
+        console.log(doc.data().changed_at.toDate())
+    });
+});
+</script>
