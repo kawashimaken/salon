@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+// secret_exampl.jsのように、twilioのAPIなどを設定しておいてください
+// 用意したファイルを「secret.js」にしてください
+import {ACCOUNT_SID,API_KEY_SID,API_KEY_SECRET} from './secret'
 
 const {
   connect
@@ -7,11 +10,6 @@ const {
 
 var AccessToken = require('twilio').jwt.AccessToken;
 var VideoGrant = AccessToken.VideoGrant;
-
-// Substitute your Twilio AccountSid and ApiKey details
-var ACCOUNT_SID = 'XXXXXX';
-var API_KEY_SID = 'YYYYYY';
-var API_KEY_SECRET = 'ZZZZZZ';
 
 // Create an Access Token
 var accessToken = new AccessToken(
