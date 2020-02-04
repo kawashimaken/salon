@@ -15,6 +15,7 @@
   //
   var db = firebase.firestore();
   //
+  // test_time_demoはfirebase consoleで作成ておいてください。
   db.collection("test_time_demo").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         //console.log(`${doc.id} => ${doc.data()}`);
