@@ -1,7 +1,8 @@
 # for more, see https://github.com/github/gitignore
 #
-#
-# ========== Python ==========
+# -----------------------------------------------------------------------------
+#  Python 
+# -----------------------------------------------------------------------------
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
 **/*.py[cod]
@@ -133,8 +134,12 @@
 **/.pyre/
 
 
+# for more, see https://github.com/github/gitignore
+#
+# -----------------------------------------------------------------------------
+# Node.js
+# -----------------------------------------------------------------------------
 
-# ========== Node.js ==========
 # Logs
 **/logs
 **/*.log
@@ -243,8 +248,13 @@
 # Stores VSCode versions used for testing VSCode extensions
 **/.vscode-test
 
+# for more, see https://github.com/github/gitignore
+#
+# -----------------------------------------------------------------------------
+# CakePHP
+# -----------------------------------------------------------------------------
 
-# ========== CakePHP ==========
+
 # CakePHP 3
 
 **/vendor/*
@@ -272,23 +282,57 @@
 **/vendors/*
 
 
+# for more, see https://github.com/github/gitignore
+#
+# -----------------------------------------------------------------------------
+# Vagrant
+# -----------------------------------------------------------------------------
 
-# ---------- Vagrant ----------
 # General
 **/.vagrant/
 
 # Log files (if you are creating logs in debug mode, uncomment this)
 # *.log
+# for more, see https://github.com/github/gitignore
+#
 
-# ---------- vscode ----------
+# -----------------------------------------------------------------------------
+# vscode
+# -----------------------------------------------------------------------------
+
 **/.vscode/*
-!**/.vscode/settings.json
-!**/.vscode/tasks.json
-!**/.vscode/launch.json
-!**/.vscode/extensions.json
+# !**/.vscode/settings.json
+# !**/.vscode/tasks.json
+# !**/.vscode/launch.json
+# !**/.vscode/extensions.json
 **/*.code-workspace
 
-# ---------- for all -----------
+
+# for more, see https://github.com/github/gitignore
+#
+# -----------------------------------------------------------------------------
+# Jupyter Notebooks
+# -----------------------------------------------------------------------------
+
+# gitignore template for Jupyter Notebooks
+# website: http://jupyter.org/
+
+**/.ipynb_checkpoints
+**/.ipynb_checkpoints/*
+
+# IPython
+**/profile_default/
+**/ipython_config.py
+
+# Remove previous ipynb_checkpoints
+#   git rm -r .ipynb_checkpoints/
+
+# for more, see https://github.com/github/gitignore
+#
+# -----------------------------------------------------------------------------
+# for all
+# -----------------------------------------------------------------------------
+
 **/data/*
 **/secret/*
 **/secret.*
