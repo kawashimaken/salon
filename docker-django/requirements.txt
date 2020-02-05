@@ -1,0 +1,4 @@
+Django>=2.2.4
+mysqlclient==1.4.6
+social-auth-app-django
+django-bootstrap4
