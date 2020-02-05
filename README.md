@@ -60,6 +60,8 @@ https://github.com/kawashimaken/docker-lamp-lesson
 
 ## Flask/bottle(Python ウェブアプリケーションフレームワーク)
 
+ゼロから、スタートしたい時に使うと便利です。
+
 https://github.com/kawashimaken/docker-python3-bottle-flask
 
 ## Node + Express + MongoDB
