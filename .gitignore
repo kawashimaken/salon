@@ -273,3 +273,4 @@
 **/data/*
 **/secret/*
 **/secret.*
+**/.vscode
