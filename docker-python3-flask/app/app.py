@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
+
+
 #
 @app.route('/')
 def index():
@@ -12,6 +14,16 @@ def index():
 def hello():
     message = 'hello from python'
     return render_template('hello.html', message=message)
+
+
+@app.route('/form', methods=('GET', 'POST'))
+def process_form():
+    question = ''
+    if request.method == 'POST':
+        question = request.form.get('question')
+        print(question)
+
+    return render_template('form.html', question=question)
 
 
 if __name__ == '__main__':
