@@ -1,6 +1,5 @@
 # 川島のITスキルサロンのソースコード
 
-
 会員さんの質問を回答したり、問題解決するためのサンプルコードです。
 
 全てのコードが参考用です。
@@ -13,12 +12,13 @@
 
 サロンはこちらです。https://note.com/kawashimaken/m/me13f2d6e0ab8
 
+Python プログラムはPython 3のみ対応しています。
 
 # フォルダ説明
 
 ## python
 
-単独で実行できるPython プログラムです。
+単独で実行できるPython (Python 3)プログラムです。
 
 Python3のみ対応です。
 
@@ -44,10 +44,9 @@ pytorchで作成した機械学習、深層学習プログラムです。
 
 tensorflowで作成した機械学習、深層学習プログラムです。
 
-## docker-python3-flask
+## docker-flask
 
 FlaskのDocker開発環境
-
 
 ## docker-django
 
