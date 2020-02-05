@@ -1,3 +1,12 @@
+# 起動
+
+```
+docker-compose up
+```
+* localhost:8000/polls
+
+* 管理者画面 localhost:8000/admin
+* 管理者ログイン admin/password
 
 # よく使うコマンド
 
