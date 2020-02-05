@@ -274,3 +274,4 @@
 **/secret/*
 **/secret.*
 **/.vscode
+**/.vscode/*
