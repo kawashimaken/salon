@@ -12,3 +12,11 @@ https://www.anaconda.com/distribution/
 ## simple_frame.py
 
 デスクトップGUIアプリのシンプルなdemo
+
+## yes_or_no_02.py
+
+
+実行方法
+```
+python yes_or_no_02.py
+```
