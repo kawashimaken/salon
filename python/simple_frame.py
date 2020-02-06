@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import tkinter as tk
 
 
@@ -5,6 +7,7 @@ class Application(tk.Frame):
     '''
     デスクトップのアプリのウィンドウを作成するサンプルコード
     '''
+
     def __init__(self, master=None):
         super().__init__(master)
         master.title("タイトル")

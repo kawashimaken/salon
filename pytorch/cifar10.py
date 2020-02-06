@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -17,17 +19,13 @@ transform = transforms.Compose([
 # 学習データ
 train_data_with_teacher_labels = torchvision.datasets.CIFAR10(
     root='./data', train=True, download=True, transform=transform)
-train_data_loader = torch.utils.data.DataLoader(train_data_with_teacher_labels,
-                                                batch_size=4,
-                                                shuffle=True,
-                                                num_workers=2)
+train_data_loader = torch.utils.data.DataLoader(
+    train_data_with_teacher_labels, batch_size=4, shuffle=True, num_workers=2)
 # 検証データ
 test_data_with_teacher_labels = torchvision.datasets.CIFAR10(
     root='./data', train=False, download=True, transform=transform)
-test_data_loader = torch.utils.data.DataLoader(test_data_with_teacher_labels,
-                                               batch_size=4,
-                                               shuffle=False,
-                                               num_workers=2)
+test_data_loader = torch.utils.data.DataLoader(
+    test_data_with_teacher_labels, batch_size=4, shuffle=False, num_workers=2)
 
 class_names = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse',
                'ship', 'truck')
@@ -89,8 +87,8 @@ for epoch in range(MAX_EPOCH):
 
         # 2000ミニバッチずつ、進捗を表示します
         if i % 2000 == 1999:
-            print('学習進捗：[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, total_loss / 2000))
+            print('学習進捗：[%d, %5d] loss: %.3f' % (epoch + 1, i + 1,
+                                                 total_loss / 2000))
             total_loss = 0.0
 
 print('学習完了')
@@ -136,5 +134,5 @@ with torch.no_grad():
             class_total[label] += 1
 
 for i in range(10):
-    print(' %5s クラスの正解率は: %2d %%' %
-          (class_names[i], 100 * class_correct[i] / class_total[i]))
+    print(' %5s クラスの正解率は: %2d %%' % (class_names[i],
+                                     100 * class_correct[i] / class_total[i]))

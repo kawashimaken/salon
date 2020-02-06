@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import absolute_import, division, print_function, unicode_literals
 import tensorflow as tf
 
@@ -30,9 +32,10 @@ model = tf.keras.models.Sequential([
 # 最適化アルゴリズム：Adam
 # 損失関数：sparse_categorical_crossentropy
 # 評価関数：accuracy
-model.compile(optimizer='adam',
-              loss='sparse_categorical_crossentropy',
-              metrics=['accuracy'])
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy'])
 
 # 学習
 # エポック5回

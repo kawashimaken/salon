@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 def calc_pi(n: int) -> float:
     '''
     メソッド：パイを計算する

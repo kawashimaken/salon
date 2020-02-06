@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import torch
 print(torch.__version__)
 
@@ -15,10 +17,8 @@ import torch.optim as optimizer
 data_folder = '~/data'
 BATCH_SIZE = 8
 
-mnist_data = QMNIST(data_folder,
-                    train=True,
-                    download=True,
-                    transform=transforms.ToTensor())
+mnist_data = QMNIST(
+    data_folder, train=True, download=True, transform=transforms.ToTensor())
 #
 data_loader = DataLoader(mnist_data, batch_size=BATCH_SIZE, shuffle=False)
 
@@ -29,22 +29,16 @@ print(len(images))
 print(len(labels))
 
 # 学習データ
-train_data_with_labels = QMNIST(data_folder,
-                                train=True,
-                                download=True,
-                                transform=transforms.ToTensor())
-train_data_loader = DataLoader(train_data_with_labels,
-                               batch_size=BATCH_SIZE,
-                               shuffle=True)
+train_data_with_labels = QMNIST(
+    data_folder, train=True, download=True, transform=transforms.ToTensor())
+train_data_loader = DataLoader(
+    train_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
 
 # 検証データ
-test_data_with_labels = QMNIST(data_folder,
-                               train=False,
-                               download=True,
-                               transform=transforms.ToTensor())
-test_data_loader = DataLoader(test_data_with_labels,
-                              batch_size=BATCH_SIZE,
-                              shuffle=True)
+test_data_with_labels = QMNIST(
+    data_folder, train=False, download=True, transform=transforms.ToTensor())
+test_data_loader = DataLoader(
+    test_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
 
 
 class MLP(nn.Module):
@@ -104,8 +98,8 @@ for epoch in range(MAX_EPOCH):
 
         # 2000ミニバッチずつ、進捗を表示します
         if i % 2000 == 1999:
-            print('学習進捗：[%d, %d]　学習誤差（loss）: %.3f' %
-                  (epoch + 1, i + 1, total_loss / 2000))
+            print('学習進捗：[%d, %d]　学習誤差（loss）: %.3f' % (epoch + 1, i + 1,
+                                                      total_loss / 2000))
             total_loss = 0.0
 
 print('学習終了')
@@ -130,5 +124,5 @@ for data in test_data_loader:
 print('count_when_correct:%d' % (count_when_correct))
 print('total:%d' % (total))
 
-print('正解率：%d / %d = %f' %
-      (count_when_correct, total, int(count_when_correct) / int(total)))
+print('正解率：%d / %d = %f' % (count_when_correct, total,
+                            int(count_when_correct) / int(total)))
