@@ -34,8 +34,10 @@ class_names = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse',
 # CNNがPyTrochのnn.Module(ニューラルネットワーククラス)を継承する
 class CNN(nn.Module):
     def __init__(self):
+        '''
+        層ごとに定義する、例えば、活性化関数などは、次forward()で定義する
+        '''
         super(CNN, self).__init__()
-        # 層ごとに定義する、例えば、活性化関数などは、次で定義する
         # torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode='zeros')
         self.conv1 = nn.Conv2d(3, 6, 5)
         # 入力チャネル(3)、出力チャネル(6)、カーネル（フィルタ）サイズ(5)、ストライド、パディング、dilation、グループ、バイアスあり、ゼロパディング
@@ -49,9 +51,10 @@ class CNN(nn.Module):
         self.layer2 = nn.Linear(120, 84)
         # 全結合レイヤー3 出力層なので、最後は、ニューロン10個、これは分類したいクラスの数となります。
         self.layer3 = nn.Linear(84, 10)
-
-    # 順伝播の定義（つなげる）
     def forward(self, input_data):
+        '''
+        ネットワークの（順伝播）の定義（つなげる）
+        '''
         # 1番目畳み込み層の活性化関数をReLUに指定、その上、プーリング
         # 入力データはconv1に渡して、活性化関数ReLUを適用して、その上、プーリング層を加える
         input_data = self.pool(F.relu(self.conv1(input_data)))

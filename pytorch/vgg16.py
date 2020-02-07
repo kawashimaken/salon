@@ -6,9 +6,11 @@
 # cd data ない場合は、mkdir data && cd data
 # curl -O https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json
 
-# VGG-16はILSVRC　2014年で第2位
+# VGG-16はILSVRCで　2014年で第2位
 # http: // www.image - net.org / challenges / LSVRC /
 # ILSVRC:ImageNet Large Scale Visual Recognition Challengs
+# 畳み込み層と全結合層の数が16層になっているから
+# パラメーターが持っている層はカウントする、プーリング層とSoftMaxはカウントしない
 
 import numpy as np
 import json
@@ -35,7 +37,7 @@ class vgg16_demo():
         self.model = None
         # 1000クラスのラベル
         self.class_index = None
-        #
+        # データフォーマット変換済画像データ
         self.transformed_image = None
         # モデルに渡すためのフォーマット変換済み画像データ
         self.ready_for_model_image = None
@@ -44,8 +46,7 @@ class vgg16_demo():
         # 変換器
         self.transformer = None
         # なぜ224にリサイズするかというと
-        # VGG-16 では 224x224 の画像を入力として受け付けするので, ここで、画像を224にリサイズする必要がある
-        # リサイズ先の画像の大きさ
+        # VGG-16 では 224x224 の画像を入力として入力することになっていて, ここで、画像を224にリサイズする必要がある
         self.resize_to = 224
         # 各色チャネルの平均値
         self.mean = (0.5, 0.5, 0.5)
@@ -57,18 +58,18 @@ class vgg16_demo():
         # １回目の実行では、学習済みパラメータをダウンロードするため、実行に時間がかかる
         # VGG-16モデルのモデルを生成する
         # 学習済みのパラメータを使用すると宣言する
-        use_pretrained = True
-        self.model = models.vgg16(pretrained=use_pretrained)
+        self.model = models.vgg16(pretrained=True)
         # 推論モードに設定する
         self.model.eval()
 
-        # モデルのネットワーク構成を出力する
+        # モデルのネットワーク構成を出力する、パラーメーターを持っている層16層であることを確認できる
         print('VGG-16モデル', self.model)
 
     def _step2_prepare_inpu_image(self):
         '''
         画像像読み込み
         テスト用の画像は、適宜見つけて、dataフォルダに格納しておいてください
+        例えば：vizsla、weimaranerの画像を用意してください
         このファイル名は、実際のファイル名と一致させてください。
         '''
         # image_file_path = './data/dog_vizsla.jpg'
@@ -79,7 +80,6 @@ class vgg16_demo():
         '''
         学習済みに渡せるために、画像データを変換する処理です
         '''
-
         # 変換器を使って画像データを変換する
         # torch.Size([3, 224, 224])
         self.transformed_image = self._transform(self.input_image,
@@ -93,10 +93,6 @@ class vgg16_demo():
         '''
         推論する
         '''
-        # ラベル情報をロードする
-        self.class_index = json.load(
-            open('./data/imagenet_class_index.json', 'r'))
-
         # モデルに入力し、モデル出力をラベルに変換する
         # torch.Size([1, 1000])
         result = self.model(self.ready_for_model_image)
@@ -109,10 +105,15 @@ class vgg16_demo():
         '''
         予測正解率の一番高いラベルを返す
         '''
+        # ラベル情報をjsonデータとしてロードする
+        self.class_index = json.load(
+            open('./data/imagenet_class_index.json', 'r'))
+        print(self.class_index)
+        #
         max_id = np.argmax(out_put.detach().numpy())
-        result_class_name = self.class_index[str(max_id)][1]
-
-        return result_class_name
+        # self.class_indexがjsonのため、max_idを一回、文字列に変換する必要がある
+        # str(max_id)
+        return self.class_index[str(max_id)][1]
 
     def _transform(self, input_image, resize, mean, standard_deviations):
         '''
