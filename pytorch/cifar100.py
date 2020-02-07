@@ -21,39 +21,41 @@ BATCH_SIZE = 10
 # 最大学習回数
 MAX_EPOCH = 4
 
-
 # 学習データ
 train_data_with_teacher_labels = torchvision.datasets.CIFAR100(
     root='./data', train=True, download=True, transform=transform)
-train_data_loader = torch.utils.data.DataLoader(train_data_with_teacher_labels,
-                                                batch_size=BATCH_SIZE,
-                                                shuffle=True,
-                                                num_workers=2)
+train_data_loader = torch.utils.data.DataLoader(
+    train_data_with_teacher_labels,
+    batch_size=BATCH_SIZE,
+    shuffle=True,
+    num_workers=2)
 # 検証データ
 test_data_with_teacher_labels = torchvision.datasets.CIFAR100(
     root='./data', train=False, download=True, transform=transform)
-test_data_loader = torch.utils.data.DataLoader(test_data_with_teacher_labels,
-                                               batch_size=BATCH_SIZE,
-                                               shuffle=False,
-                                               num_workers=2)
+test_data_loader = torch.utils.data.DataLoader(
+    test_data_with_teacher_labels,
+    batch_size=BATCH_SIZE,
+    shuffle=False,
+    num_workers=2)
 
-cifar100_labels = (
-   'apple', 'aquarium_fish', 'baby', 'bear', 'beaver', 'bed', 'bee', 'beetle', 
-    'bicycle', 'bottle', 'bowl', 'boy', 'bridge', 'bus', 'butterfly', 'camel', 
-    'can', 'castle', 'caterpillar', 'cattle', 'chair', 'chimpanzee', 'clock', 
-    'cloud', 'cockroach', 'couch', 'crab', 'crocodile', 'cup', 'dinosaur', 
-    'dolphin', 'elephant', 'flatfish', 'forest', 'fox', 'girl', 'hamster', 
-    'house', 'kangaroo', 'keyboard', 'lamp', 'lawn_mower', 'leopard', 'lion',
-    'lizard', 'lobster', 'man', 'maple_tree', 'motorcycle', 'mountain', 'mouse',
-    'mushroom', 'oak_tree', 'orange', 'orchid', 'otter', 'palm_tree', 'pear',
-    'pickup_truck', 'pine_tree', 'plain', 'plate', 'poppy', 'porcupine',
-    'possum', 'rabbit', 'raccoon', 'ray', 'road', 'rocket', 'rose',
-    'sea', 'seal', 'shark', 'shrew', 'skunk', 'skyscraper', 'snail', 'snake',
-    'spider', 'squirrel', 'streetcar', 'sunflower', 'sweet_pepper', 'table',
-    'tank', 'telephone', 'television', 'tiger', 'tractor', 'train', 'trout',
-    'tulip', 'turtle', 'wardrobe', 'whale', 'willow_tree', 'wolf', 'woman',
-    'worm'
-)
+cifar100_labels = ('apple', 'aquarium_fish', 'baby', 'bear', 'beaver', 'bed',
+                   'bee', 'beetle', 'bicycle', 'bottle', 'bowl', 'boy',
+                   'bridge', 'bus', 'butterfly', 'camel', 'can', 'castle',
+                   'caterpillar', 'cattle', 'chair', 'chimpanzee', 'clock',
+                   'cloud', 'cockroach', 'couch', 'crab', 'crocodile', 'cup',
+                   'dinosaur', 'dolphin', 'elephant', 'flatfish', 'forest',
+                   'fox', 'girl', 'hamster', 'house', 'kangaroo', 'keyboard',
+                   'lamp', 'lawn_mower', 'leopard', 'lion', 'lizard',
+                   'lobster', 'man', 'maple_tree', 'motorcycle', 'mountain',
+                   'mouse', 'mushroom', 'oak_tree', 'orange', 'orchid',
+                   'otter', 'palm_tree', 'pear', 'pickup_truck', 'pine_tree',
+                   'plain', 'plate', 'poppy', 'porcupine', 'possum', 'rabbit',
+                   'raccoon', 'ray', 'road', 'rocket', 'rose', 'sea', 'seal',
+                   'shark', 'shrew', 'skunk', 'skyscraper', 'snail', 'snake',
+                   'spider', 'squirrel', 'streetcar', 'sunflower',
+                   'sweet_pepper', 'table', 'tank', 'telephone', 'television',
+                   'tiger', 'tractor', 'train', 'trout', 'tulip', 'turtle',
+                   'wardrobe', 'whale', 'willow_tree', 'wolf', 'woman', 'worm')
 
 
 class CNN(nn.Module):
@@ -83,8 +85,6 @@ model = CNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = optimizer.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-
-
 #
 for epoch in range(MAX_EPOCH):
 
@@ -111,8 +111,8 @@ for epoch in range(MAX_EPOCH):
 
         # 2000ミニバッチずつ、進捗を表示します
         if i % 2000 == 1999:
-            print('学習進捗：[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, total_loss / 2000))
+            print('学習進捗：[%d, %5d] loss: %.3f' % (epoch + 1, i + 1,
+                                                 total_loss / 2000))
             total_loss = 0.0
 
 print('学習完了')
@@ -129,7 +129,7 @@ with torch.no_grad():
 
         count_when_correct += (predicted == teacher_labels).sum().item()
 
-print('10000 検証画像に対しての正解率: %d %%' % (100 * count_when_correct / total))
+print('検証画像に対しての正解率: %d %%' % (100 * count_when_correct / total))
 
 class_correct = list(0. for i in range(100))
 class_total = list(0. for i in range(100))
@@ -159,5 +159,5 @@ with torch.no_grad():
             class_total[label] += 1
 
 for i in range(100):
-    print(' %5s クラスの正解率は: %2d %%' %
-          (cifar100_labels[i], 100 * class_correct[i] / class_total[i]))
+    print(' %5s クラスの正解率は: %2d %%' % (cifar100_labels[i],
+                                     100 * class_correct[i] / class_total[i]))
