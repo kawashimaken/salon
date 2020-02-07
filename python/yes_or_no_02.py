@@ -46,7 +46,6 @@ def second_question():
 
 if __name__ == '__main__':
     while True:
-
         response = first_question()
         # 質問の結果を表示する
         print(response)
