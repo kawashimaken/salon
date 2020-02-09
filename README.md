@@ -54,10 +54,6 @@ FlaskのDocker開発環境
 
 DjangoのDocker開発環境
 
-## docker-ruby-on-rails
-
-Ruby On RailsのDocker開発環境
-
 
 # 別Repoでメンテするコンテンツ
 
