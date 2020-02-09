@@ -1,6 +1,6 @@
 # docker-ruby-on-rails
 
-##How to use
+## How to use
 
 ```bash
 git clone repo
@@ -10,7 +10,7 @@ docker-compose build
 docker-compose up
 ```
 
-##Other commands
+## Other commands
 
 run the command without entering the docker container! 
 
