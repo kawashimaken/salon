@@ -12,17 +12,18 @@ const TodoList = ({ todos }) => (
     <Card interactive={true} elevation={Elevation.FOUR}>
     <h5><a href="#">今のToDoリスト</a></h5>
       <ul className="todo-list">
-      <div style={{margin:3}} class="bp3-callout bp3-intent-warning">
- 
+      <div style={{margin:3}} className="bp3-callout bp3-intent-warning">
+
           {todos && todos.length
             ? todos.map((todo, index) => {
-                return (<div><h4 class="bp3-heading" key={`todo-${todo.id}`} todo={todo}></h4>
+                return (<div><h4 class="todo-list" key={`todo-${todo.id}`} todo={todo}></h4>
                 <Todo key={`todo-${todo.id}`} todo={todo} /></div>);
               })
             : "まだToDoがありません"}
         </div>
       </ul>
     </Card>
+
   </div>
 
 );

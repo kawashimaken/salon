@@ -1,4 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER,JOKE , JOKE_FETCH_FAIL} from "./actionTypes";
+import axios from 'axios'
 
 let nextTodoId = 0;
 
@@ -15,4 +16,25 @@ export const toggleTodo = id => ({
   payload: { id }
 });
 
+
+
 export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } });
+
+//
+export const getJoke = () => {
+  return (dispatch) => {
+    return axios.get('https://official-joke-api.appspot.com/random_joke')
+      .then(res =>{
+        console.log(res.data)
+        dispatch({
+          type:JOKE,
+          payload:res
+        })
+      }
+      ).catch(err => 
+        dispatch({
+          type:JOKE_FETCH_FAIL
+        })
+      )
+  }
+}
