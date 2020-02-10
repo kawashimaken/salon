@@ -20,7 +20,7 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 # -----------------------------------------------------------------------------
 # ニューラルネットワークを用意します
-# CNNがPyTrochのnn.Module(ニューラルネットワーククラス)を継承する
+# CNNがPyTorchのnn.Module(ニューラルネットワーククラス)を継承する
 class CNN(nn.Module):
     def __init__(self):
         '''
