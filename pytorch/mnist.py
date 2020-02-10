@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import torch
+
 print(torch.__version__)
 
-import matplotlib.pyplot as plt
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 from torchvision.datasets import MNIST
 from torch.autograd import Variable
 import torch.nn as nn
-import torch.nn.functional as F
 
 import torch.optim as optimizer
 
@@ -41,6 +40,7 @@ test_data_loader = DataLoader(
     test_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
 
 
+# 　マルチレイヤーパーセプトロンクラスの定義
 class MLP(nn.Module):
     def __init__(self):
         super().__init__()
@@ -59,6 +59,7 @@ class MLP(nn.Module):
         return input_data
 
 
+# 学習用モデルのインスタンスを生成します
 model = MLP()
 
 # ソフトマックスロスエントロピー
@@ -70,30 +71,33 @@ optimizer = optimizer.SGD(model.parameters(), lr=0.01)
 MAX_EPOCH = 8
 
 for epoch in range(MAX_EPOCH):
+    # 誤差の初期設定
     total_loss = 0.0
+    # enumerateはindexをデータを分解してくれます
     for i, data in enumerate(train_data_loader):
 
-        # dataから学習対象データと教師ラベルデータを取り出します
+        # dataから学習対象データと教師ラベルデータのバッチを取り出します
         train_data, teacher_labels = data
 
         # 入力をtorch.autograd.Variableに変換します
         train_data, teacher_labels = Variable(train_data), Variable(
             teacher_labels)
 
-        # 計算された勾配情報を削除します
+        # 計算された勾配情報を削除（リセット、クリア）します
         optimizer.zero_grad()
 
-        # モデルに学習データを与えて予測を計算します
+        # モデルに学習データを与えて予測をします
         outputs = model(train_data)
 
         # lossとwによる微分計算します
         loss = lossResult(outputs, teacher_labels)
+        # 勾配を計算します
         loss.backward()
 
-        # 勾配を更新します
+        # 最適化のステップを一回実行します（パラメーターを更新します、たくさんのoptimizerの共通の処理）
         optimizer.step()
 
-        # 誤差を累計します
+        # loss.item()はlossを数値に変換します、誤差を累計します
         total_loss += loss.item()
 
         # 2000ミニバッチずつ、進捗を表示します

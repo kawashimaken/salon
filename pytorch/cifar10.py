@@ -133,18 +133,17 @@ for epoch in range(MAX_EPOCH):
         # 計算された勾配情報を削除（リセット、クリア）します
         optimizer.zero_grad()
 
-        # モデルでの予測を計算します
+        # モデルに学習データを与えて予測をします
         outputs = model(train_data)
 
         # lossとwによる微分計算します
         loss = criterion(outputs, teacher_labels)
         # 勾配を計算します
         loss.backward()
-        #
         # 最適化のステップを一回実行します（パラメーターを更新します、たくさんのoptimizerの共通の処理）
         optimizer.step()
 
-        # 誤差を累計します
+        # loss.item()はlossを数値に変換します、誤差を累計します
         total_loss += loss.item()
 
         # 2000ミニバッチずつ、進捗を表示します
