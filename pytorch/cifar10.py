@@ -221,11 +221,23 @@ with torch.no_grad():
         # 最大値、及び最大値の順番番号を取り出します
         _, predicted = torch.max(results.data, 1)
         # 上を参照
-        # 四つずつ、足していきます
-        print(teacher_labels)
-        total += teacher_labels.size(0)
         #
+        print('teacher_labels',teacher_labels)
+        # 結果：
+        # teacher_labels
+        # tensor([3, 5, 3, 8])
+        # teacher_labels
+        # tensor([3, 5, 1, 7])
+        # ...
+        # ...
+        #
+        print('teacher_labels.size(0)',teacher_labels.size(0))
+        # teacher_labels.size(0) 4
+        total += teacher_labels.size(0)
+        # 4ずつ、足していきます
+        # tensor predictedとtensor teacher_labelsがイコールする数を集計します
         count_when_correct += (predicted == teacher_labels).sum().item()
+        # .item()は数値に変換します
 
 print('検証画像データに対しての正解率: %d %%' % (100 * count_when_correct / total))
 
@@ -234,23 +246,40 @@ class_total = list(0. for i in range(10))
 #
 with torch.no_grad():
     for data in test_data_loader:
-        #
+        # 検証用データと正解教師ラベル四つずつ出します
         test_data, teacher_labels = data
-        #
+        # 推論結果
         results = model(test_data)
-        #
+        # 推論結果の結果
         _, predicted = torch.max(results, 1)
         #
         # https://docs.scipy.org/doc/numpy/reference/generated/numpy.squeeze.html
-        c = (predicted == teacher_labels).squeeze()
+        # 1になっているdimensionを消去します
+        correct_ones = (predicted == teacher_labels).squeeze()
+        print('correct_ones',correct_ones)
+        # 結果：
+        # correct_ones
+        # tensor([False, True, False, True])
+        # それに対応して、どのクラスなのかがteacher_labels[i]に格納しています
         #
         for i in range(4):
+            # 当該４つの検証データの正解教師ラベルから、どのクラス（ラベル）なのかを決めます、例えば、
             label = teacher_labels[i]
-            #
-            class_correct[label] += c[i].item()
+            print('label',label)
+            # 結果：
+            # label
+            # tensor(3)
+            # それぞれのラベルの正解の数をプラスしていきます
+            class_correct[label] += correct_ones[i].item()
             class_total[label] += 1
+            print('class_correct',class_correct)
+            print('class_total',class_total)
+            # 最終結果；
+            # class_correct[529.0, 687.0, 296.0, 212.0, 331.0, 589.0, 707.0, 616.0, 660.0, 591.0]
+            # class_total[1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0]
 
 for i in range(10):
+    # １から10のクラスの名前とその正解率を出力します
     print(' %5s クラスの正解率は: %2d %%' % (class_names[i],
                                      100 * class_correct[i] / class_total[i]))
 
