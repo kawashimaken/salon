@@ -1,43 +1,25 @@
 # -*- coding: utf-8 -*-
+# -----------------------------------------------------------------------------
+# 必要なモジュールをインポートします
+import os
 
 import torch
-import torchvision
-import torchvision.transforms as transforms
 # 全てのニューラルネットワークのベースモジュール
 import torch.nn as nn
 import torch.nn.functional as F
-
 import torch.optim as optimizer
+import torchvision
+import torchvision.transforms as transforms
+
 # -----------------------------------------------------------------------------
 # MacOSで、下記のエラーに遭遇する人は、下の二行が必要
 # OMP: Error #15: Initializing libiomp5.dylib, but found libiomp5.dylib already initialized.
 # OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK=TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http://www.intel.com/software/products/support/.
-
-import os
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
-# データフォーマット変更の設定
-transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-])
 
-# 学習データ  train=True
-train_data_with_teacher_labels = torchvision.datasets.CIFAR10(
-    root='./data', train=True, download=True, transform=transform)
-train_data_loader = torch.utils.data.DataLoader(
-    train_data_with_teacher_labels, batch_size=4, shuffle=True, num_workers=2)
-# 検証データ train=False
-test_data_with_teacher_labels = torchvision.datasets.CIFAR10(
-    root='./data', train=False, download=True, transform=transform)
-test_data_loader = torch.utils.data.DataLoader(
-    test_data_with_teacher_labels, batch_size=4, shuffle=False, num_workers=2)
-
-# クラス名（正解教師ラベル名）
-class_names = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse',
-               'ship', 'truck')
-
-
+# -----------------------------------------------------------------------------
+# ニューラルネットワークを用意します
 # CNNがPyTrochのnn.Module(ニューラルネットワーククラス)を継承する
 class CNN(nn.Module):
     def __init__(self):
@@ -85,6 +67,51 @@ class CNN(nn.Module):
 # モデルのインスタンスを生成します
 model = CNN()
 
+# -----------------------------------------------------------------------------
+# データを用意します
+# データフォーマット変更（どういうふうにデータを変更すれば良いかを指定する）の設定
+# 各色チャネルの平均値
+mean = (0.5, 0.5, 0.5)
+# 各色チャネルの標準偏差
+standard_deviations = (0.5, 0.5, 0.5)
+transform = transforms.Compose([
+    # データの型をTensorに変換する
+    transforms.ToTensor(),
+    # 色情報を標準化する
+    transforms.Normalize(mean, standard_deviations)
+])
+
+# 学習データ  train=True
+train_data_with_teacher_labels = torchvision.datasets.CIFAR10(
+    root='./data', train=True, download=True, transform=transform)
+train_data_loader = torch.utils.data.DataLoader(
+    train_data_with_teacher_labels, batch_size=4, shuffle=True, num_workers=2)
+# 検証データ train=False
+test_data_with_teacher_labels = torchvision.datasets.CIFAR10(
+    root='./data', train=False, download=True, transform=transform)
+test_data_loader = torch.utils.data.DataLoader(
+    test_data_with_teacher_labels, batch_size=4, shuffle=False, num_workers=2)
+
+print('train_data_with_teacher_labels', train_data_with_teacher_labels)
+# 結果：
+# Dataset CIFAR10
+#     Number of datapoints: 50000
+#     Root location: ./data
+#     Split: Train
+#     StandardTransform
+# Transform: Compose(
+#                ToTensor()
+#                Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+#            )
+
+print('train_data_loader', train_data_loader)
+# -----------------------------------------------------------------------------
+# クラス名（正解教師ラベル名）
+class_names = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse',
+               'ship', 'truck')
+
+# -----------------------------------------------------------------------------
+# 学習の用意をします
 # 損失関数は交差エントロピー誤差関数を使います
 criterion = nn.CrossEntropyLoss()
 # 最適化オプティマイザはSDGを使う、学習率lrは0.001、momentum(慣性項)を0.9に設定します
@@ -94,10 +121,11 @@ optimizer = optimizer.SGD(model.parameters(), lr=0.001, momentum=0.9)
 # 最大学習回数
 MAX_EPOCH = 1
 
-#
+# 学習ループ
 for epoch in range(MAX_EPOCH):
-
+    # 誤差の初期設定
     total_loss = 0.0
+    # enumerateはindexをデータを分解してくれます
     for i, data in enumerate(train_data_loader, 0):
         # dataから学習対象データと教師ラベルデータを取り出します
         train_data, teacher_labels = data
@@ -127,6 +155,8 @@ for epoch in range(MAX_EPOCH):
 
 print('学習完了')
 
+# -----------------------------------------------------------------------------
+# 検証
 # iter関数を使って、test_data_loaderをiteratorオブジェクトに変換します
 data_iterator = iter(test_data_loader)
 
@@ -149,26 +179,55 @@ print('outputs', outputs)
 # ouputsも４枚の写真の推論結果配列が入っています
 
 # 一つずつ、推論結果配列の最大値（最も確信しているラベル）取り出します
+print(torch.max(outputs, 1))
+# 結果：
+# torch.return_types.max(
+# values=tensor([1.2185, 5.8557, 2.8262, 4.7874], grad_fn=<MaxBackward0>),
+# indices=tensor([2, 8, 8, 8]))
+# torch.max(tensor, axis)
+# 　values  indices
+#     ↓        ↓
+#     _    predicted
 _, predicted = torch.max(outputs, 1)
+# 使わないものはよく、アンダーバーにします。（使い捨て）
+
+# ここでは、axis=1なので、行ごとに最大値を取り出すという意味になります
 print('_', _)
 # 結果：それぞれの最大値そのものが入っています
 # tensor([1.6123, 5.6203, 3.0886, 3.8317], grad_fn=<MaxBackward0>)
 print('predicted', predicted)
-# 結果：「最大値は何番目なのか」が入っています
+# 結果：「最大値は何番目なのか」(index location)が入っています
 # tensor([3, 9, 1, 0])
+# ４回実行して、class_nameから、それぞれのラベルを出します
 print('予測: ', ' '.join('%5s' % class_names[predicted[j]] for j in range(4)))
+#  3     9     1    0
+#  ↓　　　↓　　　↓　　　↓
+# cat truck   car plane
 
+# -----------------------------------------------------------------------------
+# 検証画像データに対しての正解率を計算します
 count_when_correct = 0
+# 全体のデータ数（計測対象数）
 total = 0
+# with torch.no_grad()は、autogradが実施する自動微分のトラッキングを一時的に無効にします。
+# tensor.requires_grad=True
 with torch.no_grad():
+    # データローダからデータバッチを取り出します
     for data in test_data_loader:
+        # データと教師ラベルに分けて格納します
         test_data, teacher_labels = data
+        # 学習済みモデルに渡して、推論してもらって、結果をresultsに格納します
         results = model(test_data)
+        # 最大値、及び最大値の順番番号を取り出します
         _, predicted = torch.max(results.data, 1)
+        # 上を参照
+        # 四つずつ、足していきます
+        print(teacher_labels)
         total += teacher_labels.size(0)
+        #
         count_when_correct += (predicted == teacher_labels).sum().item()
 
-print('検証画像に対しての正解率: %d %%' % (100 * count_when_correct / total))
+print('検証画像データに対しての正解率: %d %%' % (100 * count_when_correct / total))
 
 class_correct = list(0. for i in range(10))
 class_total = list(0. for i in range(10))
@@ -194,3 +253,7 @@ with torch.no_grad():
 for i in range(10):
     print(' %5s クラスの正解率は: %2d %%' % (class_names[i],
                                      100 * class_correct[i] / class_total[i]))
+
+# -----------------------------------------------------------------------------
+# 終わり
+# -----------------------------------------------------------------------------
