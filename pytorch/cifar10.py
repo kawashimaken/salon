@@ -52,7 +52,7 @@ class CNN(nn.Module):
         # 前の層からきたinput_dataをconv2に渡して、活性化関数ReLUを適用して、その上、プーリング層を加えます
         input_data = self.pool(F.relu(self.conv2(input_data)))
         # 前の層からきたinput_dataをフォーマット変換します
-        # 自動的に変換する
+        # -1は自動的に変換する
         input_data = input_data.view(-1, 16 * 5 * 5)
         # 前の層からきたinput_dataをlayer1に渡して、活性化関数ReLUを適用します
         input_data = F.relu(self.layer1(input_data))
@@ -68,7 +68,8 @@ class CNN(nn.Module):
 model = CNN()
 
 # -----------------------------------------------------------------------------
-# データを用意します
+# 学習データの準備をします
+print('---------- 学習データの準備をします ----------')
 # データフォーマット変更（どういうふうにデータを変更すれば良いかを指定する）の設定
 # 各色チャネルの平均値
 mean = (0.5, 0.5, 0.5)
@@ -121,9 +122,10 @@ optimizer = optimizer.SGD(model.parameters(), lr=0.001, momentum=0.9)
 # 最大学習回数
 MAX_EPOCH = 1
 
-# 学習ループ
+print('---------- 学習開始します ----------')
+# 学習開始します
 for epoch in range(MAX_EPOCH):
-    # 誤差の初期設定
+    # 計算用誤差の初期設定
     total_loss = 0.0
     # enumerateはindexをデータを分解してくれます
     for i, data in enumerate(train_data_loader, 0):
@@ -150,12 +152,15 @@ for epoch in range(MAX_EPOCH):
         if i % 2000 == 1999:
             print('学習進捗：[%d, %5d] loss: %.3f' % (epoch + 1, i + 1,
                                                  total_loss / 2000))
+            # 計算用誤差をリセットします
             total_loss = 0.0
 
 print('学習完了')
 
 # -----------------------------------------------------------------------------
 # 検証
+print('---------- １バッチ（画像４枚）の正確率を見てみます ----------')
+# まず１バッチ（画像４枚）の正確率を見てみます
 # iter関数を使って、test_data_loaderをiteratorオブジェクトに変換します
 data_iterator = iter(test_data_loader)
 
@@ -204,7 +209,9 @@ print('予測: ', ' '.join('%5s' % class_names[predicted[j]] for j in range(4)))
 # cat truck   car plane
 
 # -----------------------------------------------------------------------------
-# 検証画像データに対しての正解率を計算します
+# 次は、全ての検証画像データに対しての正解率を計算します
+print('---------- 全ての検証画像データに対しての正解率を計算します ----------')
+# 正解カウンター
 count_when_correct = 0
 # 全体のデータ数（計測対象数）
 total = 0
@@ -221,7 +228,7 @@ with torch.no_grad():
         _, predicted = torch.max(results.data, 1)
         # 上を参照
         #
-        print('teacher_labels',teacher_labels)
+        # print('teacher_labels',teacher_labels)
         # 結果：
         # teacher_labels
         # tensor([3, 5, 3, 8])
@@ -230,7 +237,7 @@ with torch.no_grad():
         # ...
         # ...
         #
-        print('teacher_labels.size(0)',teacher_labels.size(0))
+        # print('teacher_labels.size(0)',teacher_labels.size(0))
         # teacher_labels.size(0) 4
         total += teacher_labels.size(0)
         # 4ずつ、足していきます
@@ -240,6 +247,10 @@ with torch.no_grad():
 
 print('検証画像データに対しての正解率: %d %%' % (100 * count_when_correct / total))
 
+
+# -----------------------------------------------------------------------------
+# 次は、全ての検証画像データに対してのクラス午後の正解率を計算します
+print('---------- 全ての検証画像データに対してのクラスごとの正解率を計算します ----------')
 class_correct = list(0. for i in range(10))
 class_total = list(0. for i in range(10))
 #
@@ -255,7 +266,7 @@ with torch.no_grad():
         # https://docs.scipy.org/doc/numpy/reference/generated/numpy.squeeze.html
         # 1になっているdimensionを消去します
         correct_ones = (predicted == teacher_labels).squeeze()
-        print('correct_ones',correct_ones)
+        # print('correct_ones',correct_ones)
         # 結果：
         # correct_ones
         # tensor([False, True, False, True])
@@ -264,15 +275,15 @@ with torch.no_grad():
         for i in range(4):
             # 当該４つの検証データの正解教師ラベルから、どのクラス（ラベル）なのかを決めます、例えば、
             label = teacher_labels[i]
-            print('label',label)
+            # print('label',label)
             # 結果：
             # label
             # tensor(3)
             # それぞれのラベルの正解の数をプラスしていきます
             class_correct[label] += correct_ones[i].item()
             class_total[label] += 1
-            print('class_correct',class_correct)
-            print('class_total',class_total)
+            # print('class_correct',class_correct)
+            # print('class_total',class_total)
             # 最終結果；
             # class_correct[529.0, 687.0, 296.0, 212.0, 331.0, 589.0, 707.0, 616.0, 660.0, 591.0]
             # class_total[1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0]

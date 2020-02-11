@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# -----------------------------------------------------------------------------
 
 import torch
 
@@ -12,37 +13,18 @@ import torch.nn as nn
 
 import torch.optim as optimizer
 
-#
-data_folder = '~/data'
+# -----------------------------------------------------------------------------
 BATCH_SIZE = 8
+# 最大学習回数
+MAX_EPOCH = 8
 
-mnist_data = MNIST(
-    data_folder, train=True, download=True, transform=transforms.ToTensor())
-#
-data_loader = DataLoader(mnist_data, batch_size=BATCH_SIZE, shuffle=False)
-
-data_iterator = iter(data_loader)
-images, labels = data_iterator.next()
-
-print(len(images))
-print(len(labels))
-
-# 学習データ
-train_data_with_labels = MNIST(
-    data_folder, train=True, download=True, transform=transforms.ToTensor())
-train_data_loader = DataLoader(
-    train_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
-
-# 検証データ
-test_data_with_labels = MNIST(
-    data_folder, train=False, download=True, transform=transforms.ToTensor())
-test_data_loader = DataLoader(
-    test_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
-
-
+# -----------------------------------------------------------------------------
 # 　マルチレイヤーパーセプトロンクラスの定義
 class MLP(nn.Module):
     def __init__(self):
+        '''
+        層ごとに定義する、例えば、活性化関数などは、次forward()で定義する
+        '''
         super().__init__()
         # 入力層
         self.layer1 = nn.Linear(28 * 28, 100)
@@ -52,9 +34,17 @@ class MLP(nn.Module):
         self.layer3 = nn.Linear(50, 10)
 
     def forward(self, input_data):
+        '''
+        ネットワークの（順伝播）の定義（つなげる）
+        '''
+        # input_dataをフォーマット変換します
+        # -1は自動的に変換する
         input_data = input_data.view(-1, 28 * 28)
+        # 前の層からきたinput_dataをlayer1に渡します
         input_data = self.layer1(input_data)
+        # 前の層からきたinput_dataをlayer2に渡します
         input_data = self.layer2(input_data)
+        # 前の層からきたinput_dataをlayer3に渡します
         input_data = self.layer3(input_data)
         return input_data
 
@@ -62,14 +52,38 @@ class MLP(nn.Module):
 # 学習用モデルのインスタンスを生成します
 model = MLP()
 
-# ソフトマックスロスエントロピー
+# -----------------------------------------------------------------------------
+# 学習データの準備をします
+#
+print('---------- 学習のデータの準備 ----------')
+data_folder = '~/data'
+transform = transforms.Compose([
+    # データの型をTensorに変換する
+    transforms.ToTensor()
+])
+
+# 学習データ
+train_data_with_labels = MNIST(
+    data_folder, train=True, download=True, transform=transform)
+
+train_data_loader = DataLoader(
+    train_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
+
+# 検証データ
+test_data_with_labels = MNIST(
+    data_folder, train=False, download=True, transform=transforms.ToTensor())
+test_data_loader = DataLoader(
+    test_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
+
+# -----------------------------------------------------------------------------
+# 学習の用意をします
+# 損失関数は交差エントロピー誤差関数を使います
 lossResult = nn.CrossEntropyLoss()
 # SGD
 optimizer = optimizer.SGD(model.parameters(), lr=0.01)
 
-# 最大学習回数
-MAX_EPOCH = 8
-
+print('---------- 学習開始します ----------')
+# 学習開始します
 for epoch in range(MAX_EPOCH):
     # 誤差の初期設定
     total_loss = 0.0
@@ -103,12 +117,16 @@ for epoch in range(MAX_EPOCH):
         # 2000ミニバッチずつ、進捗を表示します
         if i % 2000 == 1999:
             print('学習進捗：[%d, %d]　学習誤差（loss）: %.3f' % (epoch + 1, i + 1,
-                                                      total_loss / 2000))
+                                                    total_loss / 2000))
+            # 計算用誤差をリセットします
             total_loss = 0.0
 
 print('学習終了')
 
-# トータル
+# -----------------------------------------------------------------------------
+# 検証：全ての検証画像データに対しての正解率を計算します
+print('---------- 全ての検証画像データに対しての正解率を計算します ----------')
+# 全体のデータ数（計測対象数）
 total = 0
 # 正解カウンター
 count_when_correct = 0
@@ -129,4 +147,4 @@ print('count_when_correct:%d' % (count_when_correct))
 print('total:%d' % (total))
 
 print('正解率：%d / %d = %f' % (count_when_correct, total,
-                            int(count_when_correct) / int(total)))
+                            count_when_correct/ total))
