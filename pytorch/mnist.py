@@ -18,6 +18,7 @@ BATCH_SIZE = 8
 # 最大学習回数
 MAX_EPOCH = 8
 
+
 # -----------------------------------------------------------------------------
 # 　マルチレイヤーパーセプトロンクラスの定義
 class MLP(nn.Module):
@@ -117,7 +118,7 @@ for epoch in range(MAX_EPOCH):
         # 2000ミニバッチずつ、進捗を表示します
         if i % 2000 == 1999:
             print('学習進捗：[%d, %d]　学習誤差（loss）: %.3f' % (epoch + 1, i + 1,
-                                                    total_loss / 2000))
+                                                      total_loss / 2000))
             # 計算用誤差をリセットします
             total_loss = 0.0
 
@@ -147,4 +148,4 @@ print('count_when_correct:%d' % (count_when_correct))
 print('total:%d' % (total))
 
 print('正解率：%d / %d = %f' % (count_when_correct, total,
-                            count_when_correct/ total))
+                            count_when_correct / total))

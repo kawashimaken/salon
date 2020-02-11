@@ -12,16 +12,17 @@
 # 畳み込み層と全結合層の数が16層になっているから
 # パラメーターが持っている層はカウントする、プーリング層とSoftMaxはカウントしない
 
-import numpy as np
 import json
-from PIL import Image
-
-from torchvision import models, transforms
 # -----------------------------------------------------------------------------
 # MacOSで、下記のエラーに遭遇する人は、下の二行が必要
 # OMP: Error #15: Initializing libiomp5.dylib, but found libiomp5.dylib already initialized.
 # OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK=TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http://www.intel.com/software/products/support/.
 import os
+
+import numpy as np
+from PIL import Image
+from torchvision import models, transforms
+
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 

@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
-
 import torch
+
 # -----------------------------------------------------------------------------
 # tensorの作成
 # torch.tensorは多次元行列　numpyのように

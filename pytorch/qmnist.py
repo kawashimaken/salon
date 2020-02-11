@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import torch
+
 print(torch.__version__)
 
-import matplotlib.pyplot as plt
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 from torchvision.datasets import QMNIST
 from torch.autograd import Variable
 import torch.nn as nn
-import torch.nn.functional as F
 
 import torch.optim as optimizer
 
