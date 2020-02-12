@@ -12,12 +12,13 @@ from torch.autograd import Variable
 import torch.nn as nn
 
 import torch.optim as optimizer
+import torch.nn.functional as F
 
 # -----------------------------------------------------------------------------
 # ミニバッチのバッチサイズ
 BATCH_SIZE = 4
 # 最大学習回数
-MAX_EPOCH = 2
+MAX_EPOCH = 4
 # 進捗出力するバッチ数
 PROGRESS_SHOW_PER_BATCH_COUNT=1000
 
@@ -45,11 +46,11 @@ class MLP(nn.Module):
         # -1は自動的に変換する
         input_data = input_data.view(-1, 28 * 28)
         # 前の層からきたinput_dataをlayer1に渡します
-        input_data = self.layer1(input_data)
+        input_data = F.relu(self.layer1(input_data))
         # 前の層からきたinput_dataをlayer2に渡します
-        input_data = self.layer2(input_data)
+        input_data = F.relu(self.layer2(input_data))
         # 前の層からきたinput_dataをlayer3に渡します
-        input_data = self.layer3(input_data)
+        input_data = F.relu(self.layer3(input_data))
         return input_data
 
 
