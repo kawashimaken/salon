@@ -38,8 +38,8 @@ class vgg19_demo():
         self.predictor = None
         # 変換器
         self.transformer = None
-        # なぜ224にリサイズするかというと
-        # VGG-16 では 224x224 の画像を入力として入力することになっていて, ここで、画像を224にリサイズする必要がある
+        # 
+        #
         self.resize_to = 224
         # 各色チャネルの平均値
         self.mean = (0.5, 0.5, 0.5)
