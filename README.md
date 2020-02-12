@@ -70,6 +70,10 @@ https://github.com/kawashimaken/docker-python3-bottle-flask
 
 https://github.com/kawashimaken/docker-compose-node-mongodb
 
+## expo + ReactNativeでスマホアプリ開発するデモ
+
+https://github.com/Kokensha/kokensharnexpo/tree/master/reactnative-expo
+
 # その他
 
 ## 川島の著書のRepo
