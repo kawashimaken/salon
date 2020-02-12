@@ -153,15 +153,15 @@ with torch.no_grad():
         # resultsのshapeはtorch.Size([4, 100])
         # 最大値を取り出す
         _, predicted = torch.max(results, 1)
-        # predictedのshapleはtorch.Size([4])
+        # predictedのshapeはtorch.Size([4])
         # 予測が教師ラベルと一致する場合、次元を圧縮する
         # trueの個数（何個正解したか）
-        correctly_preidicted = (predicted == teacher_labels).squeeze()
+        correctly_predicted = (predicted == teacher_labels).squeeze()
         #
         for i in range(BATCH_SIZE):
             label = teacher_labels[i]
             # クラスごとに、正確に推論した数の累計
-            class_correct[label] += correctly_preidicted[i].item()
+            class_correct[label] += correctly_predicted[i].item()
             # 正解教師ラベル数の累計
             class_total[label] += 1
 
