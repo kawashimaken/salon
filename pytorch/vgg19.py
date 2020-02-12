@@ -38,7 +38,7 @@ class vgg19_demo():
         self.predictor = None
         # 変換器
         self.transformer = None
-        # 
+        #
         #
         self.resize_to = 224
         # 各色チャネルの平均値
