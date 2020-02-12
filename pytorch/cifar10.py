@@ -17,14 +17,14 @@ import torchvision.transforms as transforms
 # OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK=TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http://www.intel.com/software/products/support/.
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
-
 # -----------------------------------------------------------------------------
 # ミニバッチのバッチサイズ
 BATCH_SIZE = 4
 # 最大学習回数
 MAX_EPOCH = 1
 # 進捗出力するバッチ数
-PROGRESS_SHOW_PER_BATCH_COUNT=1000
+PROGRESS_SHOW_PER_BATCH_COUNT = 1000
+
 
 # -----------------------------------------------------------------------------
 # ニューラルネットワークを用意します
@@ -127,8 +127,6 @@ criterion = nn.CrossEntropyLoss()
 # momentumが、ここではオプションですが、転がるボールが地面の摩擦抵抗で徐々に減速していくイメージです
 optimizer = optimizer.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-
-
 print('---------- 学習開始します ----------')
 # 学習開始します
 for epoch in range(MAX_EPOCH):
@@ -159,8 +157,8 @@ for epoch in range(MAX_EPOCH):
         if i % PROGRESS_SHOW_PER_BATCH_COUNT == PROGRESS_SHOW_PER_BATCH_COUNT - 1:
             print(
                 '学習進捗：[EPOCH:%d, %dバッチ, バッチサイズ:%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (
-                epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
-                total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
+                    epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
+                    total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
             # 計算用誤差をリセットします
             total_loss = 0.0
 

@@ -20,7 +20,7 @@ BATCH_SIZE = 4
 # 最大学習回数
 MAX_EPOCH = 4
 # 進捗出力するバッチ数
-PROGRESS_SHOW_PER_BATCH_COUNT=1000
+PROGRESS_SHOW_PER_BATCH_COUNT = 1000
 
 
 # -----------------------------------------------------------------------------
@@ -120,11 +120,12 @@ for epoch in range(MAX_EPOCH):
         total_loss += loss.item()
 
         # PROGRESS_SHOW_PER_BATCH_COUNTミニバッチずつ、進捗を表示します
-        if i % PROGRESS_SHOW_PER_BATCH_COUNT == PROGRESS_SHOW_PER_BATCH_COUNT-1:
-            print('i=',i)
+        if i % PROGRESS_SHOW_PER_BATCH_COUNT == PROGRESS_SHOW_PER_BATCH_COUNT - 1:
+            print('i=', i)
             print(
-                '学習進捗：[EPOCH:%d, %dバッチx%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
-                                                                     total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
+                '学習進捗：[EPOCH:%d, %dバッチx%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (
+                    epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
+                    total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
             # 計算用誤差をリセットします
             total_loss = 0.0
 

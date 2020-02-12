@@ -12,6 +12,7 @@ from torch.autograd import Variable
 import torch.nn as nn
 
 import torch.optim as optimizer
+import torch.nn.functional as F
 
 # -----------------------------------------------------------------------------
 # ミニバッチのバッチサイズ
@@ -19,7 +20,7 @@ BATCH_SIZE = 4
 # 最大学習回数
 MAX_EPOCH = 2
 # 進捗出力するバッチ数
-PROGRESS_SHOW_PER_BATCH_COUNT=1000
+PROGRESS_SHOW_PER_BATCH_COUNT = 1000
 
 
 # -----------------------------------------------------------------------------
@@ -45,11 +46,11 @@ class MLP(nn.Module):
         # -1は自動的に変換する
         input_data = input_data.view(-1, 28 * 28)
         # 前の層からきたinput_dataをlayer1に渡します
-        input_data = self.layer1(input_data)
+        input_data = F.relu(self.layer1(input_data))
         # 前の層からきたinput_dataをlayer2に渡します
-        input_data = self.layer2(input_data)
+        input_data = F.relu(self.layer2(input_data))
         # 前の層からきたinput_dataをlayer3に渡します
-        input_data = self.layer3(input_data)
+        input_data = F.relu(self.layer3(input_data))
         return input_data
 
 
@@ -68,14 +69,14 @@ transform = transforms.Compose([
 
 # 学習データ
 train_data_with_labels = EMNIST(
-    data_folder, train=True, download=True, transform=transform,split='mnist')
+    data_folder, train=True, download=True, transform=transform, split='mnist')
 
 train_data_loader = DataLoader(
     train_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
 
 # 検証データ
 test_data_with_labels = EMNIST(
-    data_folder, train=False, download=True, transform=transform,split='mnist')
+    data_folder, train=False, download=True, transform=transform, split='mnist')
 test_data_loader = DataLoader(
     test_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
 
@@ -119,11 +120,12 @@ for epoch in range(MAX_EPOCH):
         total_loss += loss.item()
 
         # PROGRESS_SHOW_PER_BATCH_COUNTミニバッチずつ、進捗を表示します
-        if i % PROGRESS_SHOW_PER_BATCH_COUNT == PROGRESS_SHOW_PER_BATCH_COUNT-1:
-            print('i=',i)
+        if i % PROGRESS_SHOW_PER_BATCH_COUNT == PROGRESS_SHOW_PER_BATCH_COUNT - 1:
+            print('i=', i)
             print(
-                '学習進捗：[EPOCH:%d, %dバッチx%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
-                                                                     total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
+                '学習進捗：[EPOCH:%d, %dバッチx%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (
+                epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
+                total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
             # 計算用誤差をリセットします
             total_loss = 0.0
 
@@ -183,4 +185,3 @@ print('total:%d' % (total))
 
 print('正解率：%d / %d = %f' % (count_when_correct, total,
                             int(count_when_correct) / int(total)))
-
