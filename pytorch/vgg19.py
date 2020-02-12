@@ -9,13 +9,12 @@ import os
 
 import numpy as np
 from PIL import Image
-from torchvision import models,transforms
-
+from torchvision import models, transforms
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 import torch
-print(torch.__version__)
 
+print(torch.__version__)
 
 
 class vgg19_demo():
