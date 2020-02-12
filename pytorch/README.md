@@ -44,3 +44,12 @@ CIFAR-10の画像分類（10種類）　https://www.cs.toronto.edu/~kriz/cifar.h
 CIFAR-100の画像分類（100種類）　https://www.cs.toronto.edu/~kriz/cifar.html
 
 学習、やや時間がかかる
+
+## [vgg16.py](vgg16.py)
+
+VGG16の学習済みモデルを使って、犬の（写真を使って犬の）品種を認識するプログラム
+
+## [vgg19.py](vgg19.py)
+
+今、VGG19のモデルがダウンロードできない状況が発生しています。https://github.com/pytorch/vision/issues/1876
+
