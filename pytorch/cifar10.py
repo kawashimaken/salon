@@ -189,7 +189,7 @@ print('outputs', outputs)
 #         [ 3.5036,  1.7275,  0.5213, -2.0472, -0.0412, -3.2352, -2.1648, -2.7098,
 #           4.5848,  0.2555]], grad_fn=<AddmmBackward>)
 # iteratorから出したデータはバッチになっており
-# ouputsも４枚の写真の推論結果配列が入っています
+# ouputsも４(BATCH_SIZE)枚の写真の推論結果配列が入っています
 
 # 一つずつ、推論結果配列の最大値（最も確信しているラベル）取り出します
 print(torch.max(outputs, 1))
@@ -211,8 +211,8 @@ print('_', _)
 print('predicted', predicted)
 # 結果：「最大値は何番目なのか」(index location)が入っています
 # tensor([3, 9, 1, 0])
-# ４回実行して、class_nameから、それぞれのラベルを出します
-print('予測: ', ' '.join('%5s' % class_names[predicted[j]] for j in range(4)))
+# ４(BATCH_SIZE)回実行して、class_nameから、それぞれのラベルを出します
+print('予測: ', ' '.join('%5s' % class_names[predicted[j]] for j in range(BATCH_SIZE)))
 #  3     9     1    0
 #  ↓　　　↓　　　↓　　　↓
 # cat truck   car plane

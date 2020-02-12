@@ -15,7 +15,7 @@ import torch.optim as optimizer
 
 # -----------------------------------------------------------------------------
 # ミニバッチのバッチサイズ
-BATCH_SIZE = 10
+BATCH_SIZE = 4
 # 最大学習回数
 MAX_EPOCH = 2
 # 進捗出力するバッチ数
@@ -75,7 +75,7 @@ train_data_loader = DataLoader(
 
 # 検証データ
 test_data_with_labels = MNIST(
-    data_folder, train=False, download=True, transform=transforms.ToTensor())
+    data_folder, train=False, download=True, transform=transform)
 test_data_loader = DataLoader(
     test_data_with_labels, batch_size=BATCH_SIZE, shuffle=True)
 
@@ -122,7 +122,7 @@ for epoch in range(MAX_EPOCH):
         if i % PROGRESS_SHOW_PER_BATCH_COUNT == PROGRESS_SHOW_PER_BATCH_COUNT-1:
             print('i=',i)
             print(
-                '学習進捗：[EPOCH:%d, %dバッチ, バッチサイズ:%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
+                '学習進捗：[EPOCH:%d, %dバッチx%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
                                                                      total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
             # 計算用誤差をリセットします
             total_loss = 0.0
@@ -144,8 +144,37 @@ for data in test_data_loader:
     # テストデータを変換した上、モデルに渡して、判定してもらいます
     results = model(Variable(test_data))
     # 予測を取り出します
+    print(torch.max(results, 1))
+    # 結果：
+    # torch.return_types.max(
+    # values=tensor([1.2185, 5.8557, 2.8262, 4.7874], grad_fn=<MaxBackward0>),
+    # indices=tensor([2, 8, 8, 8]))
+    # torch.max(tensor, axis)
+    # 　values  indices
+    #     ↓        ↓
+    #     _    predicted
     _, predicted = torch.max(results.data, 1)
+    # 一つずつ、推論結果配列の最大値（最も確信しているラベル）取り出します
+    # 使わないものはよく、アンダーバーにします。（使い捨て）
+    # ここでは、axis=1なので、行ごとに最大値を取り出すという意味になります
+    print('_', _)
+    # 結果：それぞれの最大値そのものが入っています
+    # tensor([1.6123, 5.6203, 3.0886, 3.8317], grad_fn=<MaxBackward0>)
+    print('predicted', predicted)
+    # 結果：「最大値は何番目なのか」(index location)が入っています
+    # tensor([3, 9, 1, 0])
     #
+    # print('teacher_labels',teacher_labels)
+    # 結果：
+    # teacher_labels
+    # tensor([3, 5, 3, 8])
+    # teacher_labels
+    # tensor([3, 5, 1, 7])
+    # ...
+    # ...
+    #
+    # print('teacher_labels.size(0)',teacher_labels.size(0))
+    # teacher_labels.size(0) 4
     total += teacher_labels.size(0)
     count_when_correct += (predicted == teacher_labels).sum()
 
