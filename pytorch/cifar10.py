@@ -19,6 +19,14 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 
 # -----------------------------------------------------------------------------
+# ミニバッチのバッチサイズ
+BATCH_SIZE = 4
+# 最大学習回数
+MAX_EPOCH = 1
+# 進捗出力するバッチ数
+PROGRESS_SHOW_PER_BATCH_COUNT=1000
+
+# -----------------------------------------------------------------------------
 # ニューラルネットワークを用意します
 # CNNがPyTorchのnn.Module(ニューラルネットワーククラス)を継承する
 class CNN(nn.Module):
@@ -86,12 +94,12 @@ transform = transforms.Compose([
 train_data_with_teacher_labels = torchvision.datasets.CIFAR10(
     root='./data', train=True, download=True, transform=transform)
 train_data_loader = torch.utils.data.DataLoader(
-    train_data_with_teacher_labels, batch_size=4, shuffle=True, num_workers=2)
+    train_data_with_teacher_labels, batch_size=BATCH_SIZE, shuffle=True, num_workers=2)
 # 検証データ train=False
 test_data_with_teacher_labels = torchvision.datasets.CIFAR10(
     root='./data', train=False, download=True, transform=transform)
 test_data_loader = torch.utils.data.DataLoader(
-    test_data_with_teacher_labels, batch_size=4, shuffle=False, num_workers=2)
+    test_data_with_teacher_labels, batch_size=BATCH_SIZE, shuffle=False, num_workers=2)
 
 print('train_data_with_teacher_labels', train_data_with_teacher_labels)
 # 結果：
@@ -119,8 +127,7 @@ criterion = nn.CrossEntropyLoss()
 # momentumが、ここではオプションですが、転がるボールが地面の摩擦抵抗で徐々に減速していくイメージです
 optimizer = optimizer.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-# 最大学習回数
-MAX_EPOCH = 1
+
 
 print('---------- 学習開始します ----------')
 # 学習開始します
@@ -148,10 +155,12 @@ for epoch in range(MAX_EPOCH):
         # loss.item()はlossを数値に変換します、誤差を累計します
         total_loss += loss.item()
 
-        # 2000ミニバッチずつ、進捗を表示します
-        if i % 2000 == 1999:
-            print('学習進捗：[%d, %5d] loss: %.3f' % (epoch + 1, i + 1,
-                                                 total_loss / 2000))
+        # PROGRESS_SHOW_PER_BATCH_COUNTミニバッチずつ、進捗を表示します
+        if i % PROGRESS_SHOW_PER_BATCH_COUNT == PROGRESS_SHOW_PER_BATCH_COUNT - 1:
+            print(
+                '学習進捗：[EPOCH:%d, %dバッチ, バッチサイズ:%d -> %d枚学習完了]　学習誤差（loss）: %.3f' % (
+                epoch + 1, i + 1, BATCH_SIZE, (i + 1) * BATCH_SIZE,
+                total_loss / PROGRESS_SHOW_PER_BATCH_COUNT))
             # 計算用誤差をリセットします
             total_loss = 0.0
 
@@ -271,8 +280,8 @@ with torch.no_grad():
         # tensor([False, True, False, True])
         # それに対応して、どのクラスなのかがteacher_labels[i]に格納しています
         #
-        for i in range(4):
-            # 当該４つの検証データの正解教師ラベルから、どのクラス（ラベル）なのかを決めます、例えば、
+        for i in range(BATCH_SIZE):
+            # 当該BATCH_SIZE個数の検証データの正解教師ラベルから、どのクラス（ラベル）なのかを決めます、例えば、
             label = teacher_labels[i]
             # print('label',label)
             # 結果：

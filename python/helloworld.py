@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 def hello(args):
     print('hello ' + args)
 
