@@ -17,10 +17,13 @@ Pythonの数学演算子
 
 Pythonのハローワールドプログラム
 
-
 ## simple_frame.py
 
 デスクトップGUIアプリのシンプルなdemo
+
+## squeeze.py
+
+NumPyのsqueeze関数
 
 ## yes_or_no_02.py
 
