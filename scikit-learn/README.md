@@ -10,10 +10,14 @@
  - htmlが開きます
  - ソースコードはこちらから引用　https://github.com/lmcinnes/umap/blob/master/examples/iris
 
-
 ## 手書き数字（MNIST）
 
 * [umap_digits.py](umap_digits.py)
 
  - htmlが開きます
  - ソースコードはこちらから引用　https://github.com/lmcinnes/umap/tree/master/examples/digits
+ 
+## 糖尿病データ
+
+* [linear_diabetes.py](linear_diabetes.py)  線形回帰
+

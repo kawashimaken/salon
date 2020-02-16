@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+
+
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import CategoricalColorMapper, ColumnDataSource
 from bokeh.palettes import Category10
