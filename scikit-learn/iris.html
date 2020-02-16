@@ -1,0 +1,84 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.3.4.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="6689fc79-d850-4967-b928-056007b9dfaf" data-root-id="1003"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1122">
+          {"693cd395-f554-47ca-8e71-80735be716a4":{"roots":{"references":[{"attributes":{"callback":null},"id":"1008","type":"DataRange1d"},{"attributes":{"fill_color":{"field":"label","transform":{"id":"1002","type":"CategoricalColorMapper"}},"line_color":{"field":"label","transform":{"id":"1002","type":"CategoricalColorMapper"}},"x":{"field":"x"},"y":{"field":"y"}},"id":"1038","type":"Circle"},{"attributes":{"below":[{"id":"1014","type":"LinearAxis"}],"center":[{"id":"1018","type":"Grid"},{"id":"1023","type":"Grid"},{"id":"1048","type":"Legend"}],"left":[{"id":"1019","type":"LinearAxis"}],"renderers":[{"id":"1040","type":"GlyphRenderer"}],"title":{"id":"1004","type":"Title"},"toolbar":{"id":"1030","type":"Toolbar"},"x_range":{"id":"1006","type":"DataRange1d"},"x_scale":{"id":"1010","type":"LinearScale"},"y_range":{"id":"1008","type":"DataRange1d"},"y_scale":{"id":"1012","type":"LinearScale"}},"id":"1003","subtype":"Figure","type":"Plot"},{"attributes":{"formatter":{"id":"1044","type":"BasicTickFormatter"},"ticker":{"id":"1020","type":"BasicTicker"}},"id":"1019","type":"LinearAxis"},{"attributes":{"data_source":{"id":"1001","type":"ColumnDataSource"},"glyph":{"id":"1038","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1039","type":"Circle"},"selection_glyph":null,"view":{"id":"1041","type":"CDSView"}},"id":"1040","type":"GlyphRenderer"},{"attributes":{"dimension":1,"ticker":{"id":"1020","type":"BasicTicker"}},"id":"1023","type":"Grid"},{"attributes":{},"id":"1024","type":"PanTool"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1047","type":"BoxAnnotation"},{"attributes":{"text":"Test UMAP on Iris dataset"},"id":"1004","type":"Title"},{"attributes":{"overlay":{"id":"1047","type":"BoxAnnotation"}},"id":"1026","type":"BoxZoomTool"},{"attributes":{"callback":null,"data":{"label":["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"],"x":[1.4986214637756348,2.2354726791381836,1.767885446548462,1.6756535768508911,1.2480964660644531,0.6276723742485046,1.5569108724594116,1.68308424949646,1.9727877378463745,2.0612716674804688,0.7470695972442627,1.68264901638031,2.1901466846466064,1.7882859706878662,0.34263232350349426,0.439939945936203,0.6822085380554199,1.5993013381958008,0.6872594952583313,0.8131254315376282,1.288730502128601,1.0507359504699707,1.4036874771118164,1.4128499031066895,1.57932710647583,2.098165273666382,1.5019536018371582,1.3333510160446167,1.4145314693450928,1.793224811553955,1.9222097396850586,1.256058931350708,0.6072803735733032,0.5212059617042542,2.181939125061035,1.9681047201156616,1.170960545539856,1.1022733449935913,1.9308923482894897,1.5875898599624634,1.5147759914398193,2.1599791049957275,1.7822003364562988,1.370985746383667,0.8687161207199097,2.1021618843078613,0.7791709899902344,1.7308344841003418,0.9796295762062073,1.8351657390594482,-1.1555191278457642,-1.7065908908843994,-1.0199521780014038,-3.5707335472106934,-1.5028527975082397,-2.7999372482299805,-1.798603892326355,-4.061518669128418,-1.4170085191726685,-3.4164273738861084,-3.9914023876190186,-2.731279134750366,-3.623316764831543,-2.143087863922119,-3.646588087081909,-1.438355565071106,-2.652451992034912,-3.3537182807922363,-2.46842360496521,-3.6886913776397705,-2.0971927642822266,-3.052609920501709,-1.549798846244812,-2.244621753692627,-1.8042638301849365,-1.4664851427078247,-1.2245805263519287,-0.9375520944595337,-2.3638737201690674,-3.7942323684692383,-3.8643386363983154,-3.7613868713378906,-3.4858996868133545,-1.7985200881958008,-2.7464327812194824,-2.1082282066345215,-1.2568517923355103,-2.603402853012085,-2.993788480758667,-3.597156524658203,-3.0446622371673584,-2.1502368450164795,-3.447354555130005,-4.023427486419678,-3.1653971672058105,-2.9041101932525635,-2.9335837364196777,-2.347539186477661,-4.000169277191162,-3.1863579750061035,-0.03274357318878174,-1.9483007192611694,0.3783888518810272,-0.787036120891571,-0.21123430132865906,0.38709142804145813,-3.173804521560669,0.23857824504375458,-0.6183797717094421,0.3045952618122101,-0.5060672163963318,-0.8886125683784485,-0.0874268040060997,-2.090233087539673,-2.211061477661133,-0.07038548588752747,-0.6260730028152466,0.3360822796821594,0.22372682392597198,-1.7404329776763916,0.26287105679512024,-2.185384511947632,0.3930959701538086,-1.4770910739898682,0.18633612990379333,0.0430377833545208,-1.6896344423294067,-1.9520032405853271,-0.5526885986328125,-0.047047827392816544,0.15864238142967224,0.2714942693710327,-0.4250043034553528,-1.426437258720398,-1.206089735031128,0.3317359983921051,-0.06199221312999725,-0.49560216069221497,-2.041975736618042,0.20762434601783752,0.14126598834991455,-0.07619161158800125,-2.031851053237915,0.348347544670105,0.18319445848464966,-0.08700677752494812,-1.5095033645629883,-0.5783929824829102,-0.23630332946777344,-2.003945827484131],"y":[10.233689308166504,8.993965148925781,8.756296157836914,8.534601211547852,10.052580833435059,10.263089179992676,8.806697845458984,9.734478950500488,8.544490814208984,9.06589412689209,10.468076705932617,9.410371780395508,8.794280052185059,8.425765991210938,10.385223388671875,10.36609172821045,10.393918991088867,10.14968204498291,10.528335571289062,10.17760944366455,10.574249267578125,10.025786399841309,8.977310180664062,9.714685440063477,9.377276420593262,9.11009407043457,9.683570861816406,10.364119529724121,10.40226936340332,8.864766120910645,8.987250328063965,10.555241584777832,10.234685897827148,10.412369728088379,9.1944580078125,9.454571723937988,10.514334678649902,9.715028762817383,8.535407066345215,10.101966857910156,9.971162796020508,8.653685569763184,8.504670143127441,9.866193771362305,10.086614608764648,8.795445442199707,9.98875904083252,8.599846839904785,10.309623718261719,9.71632194519043,-2.3101987838745117,-2.2931056022644043,-2.527071475982666,-1.3053646087646484,-2.5030863285064697,-1.5190757513046265,-2.58622407913208,-1.4293606281280518,-2.1677193641662598,-1.383609414100647,-1.4817419052124023,-1.9108198881149292,-1.6657410860061646,-2.369440793991089,-1.9048125743865967,-2.2367870807647705,-1.6995493173599243,-1.785387396812439,-2.6279702186584473,-1.5125499963760376,-3.017866373062134,-1.9933209419250488,-3.2641634941101074,-2.35774827003479,-2.07327938079834,-2.134889602661133,-2.2254624366760254,-2.837777614593506,-2.094289779663086,-1.7554312944412231,-1.608649492263794,-1.4063458442687988,-1.87543523311615,-3.5383310317993164,-1.4310063123703003,-2.5349690914154053,-2.3333494663238525,-2.3058924674987793,-1.6482229232788086,-1.4702446460723877,-1.413832664489746,-2.156372547149658,-1.717200517654419,-1.4013404846191406,-1.5805126428604126,-1.7535655498504639,-1.6841816902160645,-1.9731296300888062,-1.481339693069458,-1.8613234758377075,-4.171548843383789,-3.544431686401367,-4.596660614013672,-4.0170578956604,-4.230166435241699,-5.0745134353637695,-1.394788384437561,-4.942189693450928,-4.228968143463135,-4.473788261413574,-3.541065216064453,-3.783576250076294,-3.913533926010132,-3.613126039505005,-3.732386827468872,-3.7220685482025146,-3.9254355430603027,-4.809475421905518,-5.040142059326172,-3.1902637481689453,-4.2995829582214355,-3.616797924041748,-4.912461757659912,-3.437347173690796,-4.161160469055176,-4.888818264007568,-3.301361560821533,-3.1800670623779297,-4.162528991699219,-4.6800456047058105,-4.8090715408325195,-4.861869812011719,-4.030625343322754,-3.315372943878174,-3.788607120513916,-4.943472862243652,-4.031897068023682,-3.7600467205047607,-3.2230918407440186,-3.802614450454712,-4.148111343383789,-3.6399104595184326,-3.6017303466796875,-4.168329238891602,-4.244261264801025,-3.6720669269561768,-3.2956950664520264,-3.5815443992614746,-3.8814799785614014,-3.4028141498565674]},"selected":{"id":"1056","type":"Selection"},"selection_policy":{"id":"1055","type":"UnionRenderers"}},"id":"1001","type":"ColumnDataSource"},{"attributes":{"label":{"field":"label"},"renderers":[{"id":"1040","type":"GlyphRenderer"}]},"id":"1049","type":"LegendItem"},{"attributes":{},"id":"1028","type":"ResetTool"},{"attributes":{"ticker":{"id":"1015","type":"BasicTicker"}},"id":"1018","type":"Grid"},{"attributes":{"items":[{"id":"1049","type":"LegendItem"}]},"id":"1048","type":"Legend"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"x":{"field":"x"},"y":{"field":"y"}},"id":"1039","type":"Circle"},{"attributes":{},"id":"1027","type":"SaveTool"},{"attributes":{"formatter":{"id":"1046","type":"BasicTickFormatter"},"ticker":{"id":"1015","type":"BasicTicker"}},"id":"1014","type":"LinearAxis"},{"attributes":{},"id":"1056","type":"Selection"},{"attributes":{},"id":"1044","type":"BasicTickFormatter"},{"attributes":{},"id":"1029","type":"HelpTool"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1024","type":"PanTool"},{"id":"1025","type":"WheelZoomTool"},{"id":"1026","type":"BoxZoomTool"},{"id":"1027","type":"SaveTool"},{"id":"1028","type":"ResetTool"},{"id":"1029","type":"HelpTool"}]},"id":"1030","type":"Toolbar"},{"attributes":{},"id":"1012","type":"LinearScale"},{"attributes":{},"id":"1015","type":"BasicTicker"},{"attributes":{},"id":"1055","type":"UnionRenderers"},{"attributes":{},"id":"1025","type":"WheelZoomTool"},{"attributes":{},"id":"1046","type":"BasicTickFormatter"},{"attributes":{"callback":null},"id":"1006","type":"DataRange1d"},{"attributes":{"source":{"id":"1001","type":"ColumnDataSource"}},"id":"1041","type":"CDSView"},{"attributes":{"factors":["setosa","versicolor","virginica"],"palette":["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf"]},"id":"1002","type":"CategoricalColorMapper"},{"attributes":{},"id":"1020","type":"BasicTicker"}],"root_ids":["1003"]},"title":"Bokeh Application","version":"1.3.4"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1122').textContent;
+                  var render_items = [{"docid":"693cd395-f554-47ca-8e71-80735be716a4","roots":{"1003":"6689fc79-d850-4967-b928-056007b9dfaf"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
