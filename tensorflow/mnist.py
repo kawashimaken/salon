@@ -18,7 +18,7 @@ import numpy as np
 
 BATCH_SIZE = 128
 NUM_CLASSES = 10
-EPOCHS = 10
+EPOCHS = 1
 
 IMG_ROWS, IMG_COLS = 28, 28
 
@@ -125,8 +125,8 @@ def plot_loss_accuracy_graph(fit_record):
     plt.show()
 
     # 緑の線で精度の履歴をプロットします、検証時制度は黒い線で
-    plt.plot(fit_record.history['acc'], "-o", color="green", label="train_accuracy", linewidth=2)
-    plt.plot(fit_record.history['val_acc'], "-o", color="black", label="val_accuracy", linewidth=2)
+    plt.plot(fit_record.history['accuracy'], "-o", color="green", label="train_accuracy", linewidth=2)
+    plt.plot(fit_record.history['val_accuracy'], "-o", color="black", label="val_accuracy", linewidth=2)
     plt.title('ACCURACY')
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
@@ -139,6 +139,7 @@ fit_record = model.fit(train_data, train_teacher_labels,
                        epochs=EPOCHS,
                        verbose=1,
                        validation_data=(test_data, test_teacher_labels))
+print('fit_record',fit_record)
 
 plot_loss_accuracy_graph(fit_record)
 result_score = model.evaluate(test_data, test_teacher_labels, verbose=0)
