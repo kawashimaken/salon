@@ -58,6 +58,14 @@
 
 # 別 Repo でメンテするコンテンツ
 
+## Colab Notebook
+
+https://github.com/kawashimaken/colab_notebooks
+
+* スピードの必要なPythonプログラム
+
+* サクッと試すPythonプログラム
+
 ## PHP（Docker+Linux+Apache+MySQL+PHP）
 
 - https://github.com/kawashimaken/docker-lamp-lesson
@@ -77,14 +85,6 @@
 - https://github.com/Kokensha/kokensharnexpo/tree/master/reactnative-expo
 
 # その他
-
-## Colab Notebook
-
-https://github.com/kawashimaken/colab_notebooks
-
-* スピードの必要なPythonプログラム
-
-* サクッと試すPythonプログラム
 
 ## 川島の著書の Repo
 
