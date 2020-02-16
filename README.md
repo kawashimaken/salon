@@ -87,9 +87,13 @@
 
 * https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/04_artificial_neural_network.md
 
+* https://note.com/kawashimaken/n/nfeebd2502b87
+
 ## 深層学習
 
 * https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/05_deep_learning.md
+
+* https://note.com/kawashimaken/n/nc27810b609da
 
 
 
