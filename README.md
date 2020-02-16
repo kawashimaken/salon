@@ -18,69 +18,78 @@
 
 ## python
 
-単独で実行できるPython (Python 3)プログラムです。
+* 単独で実行できるPython (Python 3)プログラムです。
 
-Python3のみ対応です。
+* Python3のみ対応です。
 
 ## javascript
 
-フロントエンドのAngular, React, Vueなど
+* フロントエンドのAngular, React, Vueなど
 
 ## nodejs
 
-javascriptのプログラムです。JSのライブラリの使い方など
+* javascriptのプログラムです。JSのライブラリの使い方など
 
-バックエンドのNode.js, Express.js
+* バックエンドのNode.js, Express.js
 
 ## php
 
-PHPのプログラムです。
+* PHPのプログラムです。
 
 ## pytorch
 
-pytorchで作成した機械学習、深層学習プログラムです。
+* pytorchで作成した機械学習、深層学習プログラムです。
 
 ## tensorflow
 
-tensorflowで作成した機械学習、深層学習プログラムです。
+* tensorflowで作成した機械学習、深層学習プログラムです。
 
 ## docker-flask
 
-FlaskのDocker開発環境
+* FlaskのDocker開発環境
 
 ## docker-django
 
-DjangoのDocker開発環境
+* DjangoのDocker開発環境
 
 
 # 別Repoでメンテするコンテンツ
 
 ## PHP（Docker+Linux+Apache+MySQL+PHP）
-https://github.com/kawashimaken/docker-lamp-lesson
+
+* https://github.com/kawashimaken/docker-lamp-lesson
 
 ## Flask/bottle(Python ウェブアプリケーションフレームワーク)
 
 ゼロから、スタートしたい時に使うと便利です。
 
-https://github.com/kawashimaken/docker-python3-bottle-flask
+* https://github.com/kawashimaken/docker-python3-bottle-flask
 
 ## Node + Express + MongoDB
 
-https://github.com/kawashimaken/docker-compose-node-mongodb
+* https://github.com/kawashimaken/docker-compose-node-mongodb
 
 ## expo + ReactNativeでスマホアプリ開発するデモ
 
-https://github.com/Kokensha/kokensharnexpo/tree/master/reactnative-expo
+* https://github.com/Kokensha/kokensharnexpo/tree/master/reactnative-expo
 
 # その他
 
 ## 川島の著書のRepo
 
-https://github.com/Kokensha/book-ml
+* https://github.com/Kokensha/book-ml
 
 ## 川島主催のハンズオンのRepo
 
-https://github.com/Kokensha/machine_learning_deep_learning_lessons
+* https://github.com/Kokensha/machine_learning_deep_learning_lessons
+
+## ニューラルネットワーク
+
+* https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/04_artificial_neural_network.md
+
+## 深層学習
+
+* https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/05_deep_learning.md
 
 
 
