@@ -36,9 +36,9 @@ regr.fit(diabetes_X_train, diabetes_y_train)
 # Make predictions using the testing set
 diabetes_y_pred = regr.predict(diabetes_X_test)
 
-# The coefficients
+# The coefficients（係数）
 print('Coefficients: \n', regr.coef_)
-# The mean squared error
+# The mean squared error（平均二乗誤差）
 print('Mean squared error: %.2f'
       % mean_squared_error(diabetes_y_test, diabetes_y_pred))
 # The coefficient of determination: 1 is perfect prediction
