@@ -78,6 +78,14 @@
 
 # その他
 
+## Colab Notebook
+
+https://github.com/kawashimaken/colab_notebooks
+
+* スピードの必要なPythonプログラム
+
+* サクッと試すPythonプログラム
+
 ## 川島の著書の Repo
 
 - https://github.com/Kokensha/book-ml
