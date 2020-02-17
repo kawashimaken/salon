@@ -11,7 +11,7 @@
  - ソースコードはこちらから引用　https://github.com/lmcinnes/umap/blob/master/examples/iris
  - for more information, please check out https://github.com/lmcinnes/umap
 
-## 手書き数字（MNIST）
+## 手書き数字
 
 * [umap_digits.py](umap_digits.py)
 
