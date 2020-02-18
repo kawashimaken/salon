@@ -62,7 +62,7 @@
 
 https://github.com/kawashimaken/colab_notebooks
 
-* スピードの必要なPythonプログラム
+* スピード（GPU）の必要なPythonプログラム
 
 * サクッと試すPythonプログラム
 
