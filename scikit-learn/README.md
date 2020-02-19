@@ -13,6 +13,8 @@
 
 ## 手書き数字
 
+* [digits.py](digits.py)
+
 * [umap_digits.py](umap_digits.py)
 
  - htmlが開きます
