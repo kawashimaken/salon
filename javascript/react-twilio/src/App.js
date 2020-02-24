@@ -3,9 +3,9 @@ import './App.css';
 import firebase from 'firebase/app'; //必須
 import 'firebase/firestore'; //必要なモジュールごとにimport
 //
-// secret_exampl.jsのように、twilioのAPIなどを設定しておいてください
+// secret_example.jsのように、twilioのAPIなどを設定しておいてください
 // 用意したファイルを「secret.js」にしてください
-import {firebaseConfig,ACCOUNT_SID,API_KEY_SID,API_KEY_SECRET} from './secret'
+import { firebaseConfig, ACCOUNT_SID, API_KEY_SID, API_KEY_SECRET } from './secret'
 
 const {
   connect
@@ -23,14 +23,14 @@ class App extends React.Component {
     //インスタンスの初期化
     firebase.initializeApp(firebaseConfig);
     this.state.db = firebase.firestore();
-    
+
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.get_ready()
   }
 
-  get_ready(){
+  get_ready() {
     var AccessToken = require('twilio').jwt.AccessToken;
     var VideoGrant = AccessToken.VideoGrant;
 
@@ -97,11 +97,11 @@ class App extends React.Component {
     // test_time_demoはfirebase consoleで作成ておいてください。
     this.state.db.collection("test_time_demo").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-          //console.log(`${doc.id} => ${doc.data()}`);
-          console.log(doc.data())
-          console.log(doc.data().changed_at)
-          console.log(doc.data().changed_at.toDate())
-          this.setState({date_string:new Date(doc.data().changed_at.toDate())})
+        //console.log(`${doc.id} => ${doc.data()}`);
+        console.log(doc.data())
+        console.log(doc.data().changed_at)
+        console.log(doc.data().changed_at.toDate())
+        this.setState({ date_string: new Date(doc.data().changed_at.toDate()) })
       });
     });
   }
@@ -115,7 +115,7 @@ class App extends React.Component {
           {this.state.date_string.toString()}
         </div>
       </div>
-      )
+    )
   }
 }
 

@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@blueprintjs/core": "^3.23.1",
+    "@slack/web-api": "^5.7.0",
     "axios": "^0.19.2",
     "classnames": "2.2.6",
     "react": "^16.12.0",
