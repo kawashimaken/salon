@@ -70,6 +70,10 @@ https://github.com/kawashimaken/colab_notebooks
 
 - https://github.com/kawashimaken/docker-lamp-lesson
 
+## Laravel(Docker + Laravel + Vue + Buefy + mySQL)
+
+- https://github.com/kawashimaken/docker-vue-laravel 
+
 ## Flask/bottle(Python ウェブアプリケーションフレームワーク)
 
 ゼロから、スタートしたい時に使うと便利です。
