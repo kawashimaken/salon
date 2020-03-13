@@ -22,6 +22,7 @@
  - https://github.com/kawashimaken/salon/tree/master/pytorch/minist.py
  
  - ニューラルネットワーク　PyTorch + CIFAR10(1)　
+ - https://github.com/kawashimaken/salon/blob/master/pytorch/cifar10.py
  - ニューラルネットワーク　TensorFlow + MNIST(1)
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/mnist.py
  - ニューラルネットワーク　TensorFlow + CIFAR10(1)　
@@ -29,7 +30,9 @@
 # 畳み込みニューラルネットワーク(CNN)
 
  - 畳み込みニューラルネットワーク（4）　
+ - https://note.com/kawashimaken/n/nc27810b609da
  - 畳み込みニューラルネットワーク PyTorch シンプル（2）　
+ - 
  - 畳み込みニューラルネットワーク PyTorch ちょっと複雑 Option
  - 畳み込みニューラルネットワーク TensorFlow　シンプル（2）　
  - 畳み込みニューラルネットワーク TensorFlow　ちょっと複雑 Option
@@ -43,7 +46,9 @@
 
 # ディープラーニン(DNN)
 
+ - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/05_deep_learning.md
  - ディープラーニング：PyTorh VGG16 Option
+ - https://github.com/kawashimaken/salon/blob/master/pytorch/vgg16.py
  - ディープラーニング：PyTorh ResNet Option
  - ディープラーニング：PyTorh GoogLeNet Option
 
