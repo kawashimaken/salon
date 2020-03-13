@@ -1,4 +1,6 @@
-# ガッツリ半走機械学習、深層学習コース
+# [ガッツリ半走機械学習、深層学習コース](https://kokensha.xyz/learn_programming_with_kawashima/)
+
+ オンラインサポート&フォローアップ、MAX8時間、月15万円+消費税
 
 # 機械学習
 
@@ -58,4 +60,4 @@
  - GANの原理 PyTorch シンプル（2）
  - GANの原理 PyTorch ちょっと複雑　Option
  - GANの原理 TensorFlow シンプル（2）
-・GANの原理 TensorFlow ちょっと複雑　Option
+ - GANの原理 TensorFlow ちょっと複雑　Option
