@@ -4,7 +4,7 @@
 
 # 機械学習
 
- - 機械学習の基礎(2)　
+ - 機械学習の基礎(2) https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/03_machine_learning.md　
  - 機械学習 scikit-learn　アヤメの分類（2）　
  - 機械学習 scikit-learn　手書きdigits（2）　
 
