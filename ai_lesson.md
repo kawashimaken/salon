@@ -32,7 +32,7 @@
  - 畳み込みニューラルネットワーク（4）　
  - https://note.com/kawashimaken/n/nc27810b609da
  - 畳み込みニューラルネットワーク PyTorch シンプル（2）　
- - 
+ - https://github.com/kawashimaken/salon/blob/master/pytorch/cifar10.py
  - 畳み込みニューラルネットワーク PyTorch ちょっと複雑 Option
  - 畳み込みニューラルネットワーク TensorFlow　シンプル（2）
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/tensorflow_simplest_neural_network_program.py
