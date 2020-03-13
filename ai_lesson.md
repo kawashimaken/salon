@@ -70,8 +70,10 @@
 
  - RNNの原理(1)
  - RNN PyTorch　シンプル(2) 
+ - https://colab.research.google.com/drive/1IaRdJBy6s0eHKyZUwxTQlX-zGeTab2kf
  - RNN PyTorch　ちょっと複雑　Option
  - RNN TensorFlow　シンプル(2) 
+ - https://colab.research.google.com/drive/1Ijr_ck3dA-O1CambbS1-l0XfVQUh_dtS
  - RNN TensorFlow　ちょっと複雑　Option
 
 # 敵対的生成ネットワーク（GAN）
