@@ -63,6 +63,7 @@
  - ディープラーニング：セグメンテーション PyTorch Option
  - ディープラーニング：物体検出 TensorFlow Option Keras YOLO3 
  - ディープラーニング：セグメンテーション TensorFlow Option
+ - https://colab.research.google.com/drive/1C3RDumiSBkWvKwGPuBa7o0t9jPBMS4tU
 
 # リカレントニューラルネットワーク（RNN）
 
