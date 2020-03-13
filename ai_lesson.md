@@ -79,7 +79,9 @@
 # 敵対的生成ネットワーク（GAN）
 
  - GANの原理（1）
- - GANの原理 PyTorch シンプル（2）
+ - GANの原理 PyTorch + MNIST シンプル（2）
+ - https://colab.research.google.com/drive/1OSgAURSJbvy3c31V7c8Bw6ZHKHoQuubv
  - GANの原理 PyTorch ちょっと複雑　Option
- - GANの原理 TensorFlow シンプル（2）
+ - GANの原理 TensorFlow + MNIST シンプル（2）
+ https://colab.research.google.com/drive/1Z4hVq0i0riMekwTpY7MgsUgz2ylZAbnk
  - GANの原理 TensorFlow ちょっと複雑　Option
