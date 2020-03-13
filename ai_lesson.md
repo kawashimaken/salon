@@ -4,20 +4,26 @@
 
 # 機械学習
 
- - 機械学習の基礎(2)  https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/03_machine_learning.md
- - 機械学習 scikit-learn　アヤメの分類（2）https://github.com/kawashimaken/salon/tree/master/scikit-learn
- - 機械学習 scikit-learn　手書きdigits（2）https://github.com/kawashimaken/salon/tree/master/scikit-learn
+ - 機械学習の基礎(2)
+ - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/03_machine_learning.md
+ - 機械学習 scikit-learn　アヤメの分類（2）
+ - https://github.com/kawashimaken/salon/tree/master/scikit-learn
+ - 機械学習 scikit-learn　手書きdigits（2）
+ - https://github.com/kawashimaken/salon/tree/master/scikit-learn
 
 # ニューラルネットワーク(NN)
 
- - ニューラルネットワーク(2)　https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/04_artificial_neural_network.md
+ - ニューラルネットワーク(2)
+ - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/04_artificial_neural_network.md
  
-https://note.com/kawashimaken/n/nfeebd2502b87
+ - https://note.com/kawashimaken/n/nfeebd2502b87
  
- - ニューラルネットワーク　PyTorch + MNIST(1)　https://github.com/kawashimaken/salon/tree/master/pytorch/minist.py
+ - ニューラルネットワーク　PyTorch + MNIST(1)
+ - https://github.com/kawashimaken/salon/tree/master/pytorch/minist.py
  
  - ニューラルネットワーク　PyTorch + CIFAR10(1)　
- - ニューラルネットワーク　TensorFlow + MNIST(1)　https://github.com/kawashimaken/salon/blob/master/tensorflow/mnist.py
+ - ニューラルネットワーク　TensorFlow + MNIST(1)
+ - https://github.com/kawashimaken/salon/blob/master/tensorflow/mnist.py
  - ニューラルネットワーク　TensorFlow + CIFAR10(1)　
  
 # 畳み込みニューラルネットワーク(CNN)
