@@ -1,4 +1,4 @@
-# [ガッツリ半走機械学習、深層学習コース](https://kokensha.xyz/learn_programming_with_kawashima/)
+# [ガッツリ半走機械学習、深層学習入門コース](https://kokensha.xyz/learn_programming_with_kawashima/)
 
  オンラインサポート&フォローアップ、MAX8時間、月15万円+消費税
 
