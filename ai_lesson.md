@@ -43,9 +43,9 @@
  - 転移学習概念(1)　
  - 転移学習 PyTorch（2）　
  - 転移学習 TensorFlow 花画像の学習と認識（2）　
- - https://github.com/Kokensha/book-ml/blob/master/Colaboratory/05_03(Flowers_retrain).ipynb
+ - https://drive.google.com/file/d/1rJBW5amSCYlaacvGyXmZf9SElXijTVlB/view?usp=sharing
  - 転移学習 TensorFlow 空き缶とペットボトルのデータ収集、学習と認識　option
- - https://github.com/Kokensha/book-ml/blob/master/Colaboratory/05_04(bottles_and_cans_retrain).ipynb
+ - https://drive.google.com/file/d/1jS0CIMfzUyfbg_GUZI50J1Y8FRlUuZQz/view?usp=sharing
 
 # ディープラーニン(DNN)
 
