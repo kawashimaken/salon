@@ -60,6 +60,7 @@
  - ディープラーニング：TensorFlow GoogLeNet Option
 
  - ディープラーニング：物体検出 PyTorch Option PyTorch YOLO3
+-  https://colab.research.google.com/drive/1h7_TPpBNuVXq3XbByuuFe7-hMHGwAQ0b
  - ディープラーニング：セグメンテーション PyTorch Option
  - https://colab.research.google.com/drive/1TZPCUJ93YOFjMKtrbcTJYWt2FZruxk_W
  - ディープラーニング：物体検出 TensorFlow Option Keras YOLO3 
@@ -83,5 +84,5 @@
  - https://colab.research.google.com/drive/1OSgAURSJbvy3c31V7c8Bw6ZHKHoQuubv
  - GANの原理 PyTorch ちょっと複雑　Option
  - GANの原理 TensorFlow + MNIST シンプル（2）
- https://colab.research.google.com/drive/1Z4hVq0i0riMekwTpY7MgsUgz2ylZAbnk
+ - https://colab.research.google.com/drive/1Z4hVq0i0riMekwTpY7MgsUgz2ylZAbnk
  - GANの原理 TensorFlow ちょっと複雑　Option
