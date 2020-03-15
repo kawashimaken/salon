@@ -1,6 +1,13 @@
 # [ガッツリ半走機械学習、深層学習入門コース](https://kokensha.xyz/learn_programming_with_kawashima/)
 
  オンラインサポート&フォローアップ、MAX8時間、月15万円+消費税
+ 
+# 準備
+
+ - [川島の自己紹介](https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/handson/kawashimaken_introduction.md)
+ - ローカルPCでPython環境の構築
+ - Google Colabを使えるようにする
+ 
 
 # 機械学習
 
