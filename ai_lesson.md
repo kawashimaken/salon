@@ -1,4 +1,4 @@
-# [ガッツリ半走機械学習、深層学習入門コース](https://kokensha.xyz/learn_programming_with_kawashima/)
+# [ガッツリ伴走機械学習、深層学習入門コース](https://kokensha.xyz/learn_programming_with_kawashima/)
 
 
 # 準備
