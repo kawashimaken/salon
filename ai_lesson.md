@@ -45,6 +45,7 @@
  - https://github.com/kawashimaken/salon/blob/master/pytorch/fashion_mnist.py
  - ニューラルネットワーク　TensorFlow + MNIST(1)
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/mnist.py
+ - https://github.com/kawashimaken/salon/blob/master/tensorflow/tensorflow_simplest_neural_network_program.py
  - ニューラルネットワーク　TensorFlow + FashionMNIST(1)　
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/fashion_mnist.py
  
@@ -61,7 +62,7 @@
  - https://github.com/kawashimaken/salon/blob/master/pytorch/cnn_cifar10.py
  - 畳み込みニューラルネットワーク TensorFlow　シンプル（2）
  https://github.com/kawashimaken/salon/blob/master/tensorflow/cnn_mnist.py
- - https://github.com/kawashimaken/salon/blob/master/tensorflow/tensorflow_simplest_neural_network_program.py
+
 
  
 ## オプション
