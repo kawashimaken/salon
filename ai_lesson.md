@@ -24,6 +24,11 @@
  - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/handson/handson02.md
  - https://github.com/kawashimaken/salon/tree/master/scikit-learn
 
+## オプション
+
+ - その他scikit-learnの課題
+ 
+
 # ニューラルネットワーク(NN)
 
 ## 理論
@@ -54,11 +59,16 @@
 
  - 畳み込みニューラルネットワーク PyTorch シンプル（2）　
  - https://github.com/kawashimaken/salon/blob/master/pytorch/cnn_cifar10.py
- - 畳み込みニューラルネットワーク PyTorch ちょっと複雑 Option
  - 畳み込みニューラルネットワーク TensorFlow　シンプル（2）
  https://github.com/kawashimaken/salon/blob/master/tensorflow/cnn_mnist.py
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/tensorflow_simplest_neural_network_program.py
- - 畳み込みニューラルネットワーク TensorFlow　ちょっと複雑 Option
+
+ 
+## オプション
+ 
+  - 畳み込みニューラルネットワーク PyTorch ちょっと複雑
+  - 畳み込みニューラルネットワーク TensorFlow　ちょっと複雑
+ 
 
 # 転移学習(Transfer Learning)
 
@@ -71,33 +81,45 @@
  - 転移学習 PyTorch（2）　
  - 転移学習 TensorFlow 花画像の学習と認識（2）　
  - https://drive.google.com/file/d/1rJBW5amSCYlaacvGyXmZf9SElXijTVlB/view?usp=sharing
+
+## オプション
+
  - 転移学習 TensorFlow 空き缶とペットボトルのデータ収集、学習と認識　option
  - https://drive.google.com/file/d/1jS0CIMfzUyfbg_GUZI50J1Y8FRlUuZQz/view?usp=sharing
 
+
 # ディープラーニン(DNN)
 
-## 実践
+## 理論
+
  - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/05_deep_learning.md
+
+## 実践
+
  - ディープラーニング：PyTorh VGG16 Option
  - https://github.com/kawashimaken/salon/blob/master/pytorch/vgg16.py
- - ディープラーニング：PyTorh ResNet Option
- - ディープラーニング：PyTorh GoogLeNet Option
 
- - ディープラーニング：TensorFlow VGG16 Option
- - ディープラーニング：TensorFlow ResNet Option
- - ディープラーニング：TensorFlow GoogLeNet Option
  
-## 物体検出
+## オプション
 
- - ディープラーニング：物体検出 PyTorch Option PyTorch YOLO3
+ - ディープラーニング：PyTorh ResNet
+ - ディープラーニング：PyTorh GoogLeNet
+
+ - ディープラーニング：TensorFlow VGG16
+ - ディープラーニング：TensorFlow ResNet
+ - ディープラーニング：TensorFlow GoogLeNet
+
+### 物体検出
+
+ - ディープラーニング：物体検出 PyTorch YOLO3
  - https://colab.research.google.com/drive/1h7_TPpBNuVXq3XbByuuFe7-hMHGwAQ0b
- - ディープラーニング：物体検出 TensorFlow Option Keras YOLO3 
+ - ディープラーニング：物体検出 TensorFlow Keras YOLO3 
 
-## セグメンテーション
+### セグメンテーション
 
- - ディープラーニング：セグメンテーション PyTorch Option
+ - ディープラーニング：セグメンテーション PyTorch
  - https://colab.research.google.com/drive/1TZPCUJ93YOFjMKtrbcTJYWt2FZruxk_W
- - ディープラーニング：セグメンテーション TensorFlow Option
+ - ディープラーニング：セグメンテーション TensorFlow
  - https://colab.research.google.com/drive/1C3RDumiSBkWvKwGPuBa7o0t9jPBMS4tU
 
 # リカレントニューラルネットワーク（RNN）
@@ -110,11 +132,14 @@
 
  - RNN PyTorch　シンプル(2) 
  - https://colab.research.google.com/drive/1IaRdJBy6s0eHKyZUwxTQlX-zGeTab2kf
- - RNN PyTorch　ちょっと複雑　Option
  - RNN TensorFlow　シンプル(2) 
  - https://colab.research.google.com/drive/1Ijr_ck3dA-O1CambbS1-l0XfVQUh_dtS
- - RNN TensorFlow　ちょっと複雑　Option
+ 
+## オプション
 
+ - RNN PyTorch　ちょっと複雑
+ - RNN TensorFlow　ちょっと複雑
+ 
 # 敵対的生成ネットワーク（GAN）
 
 ## 理論
@@ -125,9 +150,13 @@
 
  - GAN PyTorch + MNIST シンプル（2）
  - https://colab.research.google.com/drive/1OSgAURSJbvy3c31V7c8Bw6ZHKHoQuubv
- - GAN PyTorch ちょっと複雑　Option
  - GAN TensorFlow + MNIST シンプル（2）
  - https://colab.research.google.com/drive/1Z4hVq0i0riMekwTpY7MgsUgz2ylZAbnk
- - GAN TensorFlow ちょっと複雑　Option
+
  
+## オプション
+
+ - GAN PyTorch ちょっと複雑
+ - GAN TensorFlow ちょっと複雑
+
 # 終わり 
