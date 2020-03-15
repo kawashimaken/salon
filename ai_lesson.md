@@ -16,6 +16,7 @@
  - 機械学習 scikit-learn　アヤメの分類（2）
  - https://github.com/kawashimaken/salon/tree/master/scikit-learn
  - 機械学習 scikit-learn　手書きdigits（2）
+ - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/handson/handson02.md
  - https://github.com/kawashimaken/salon/tree/master/scikit-learn
 
 # ニューラルネットワーク(NN)
