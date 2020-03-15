@@ -93,24 +93,13 @@ https://github.com/kawashimaken/colab_notebooks
 
 - https://github.com/Kokensha/kokensharnexpo/tree/master/reactnative-expo
 
-# その他
 
-## 川島の著書の Repo
+# 川島の著書の Repo
 
 - https://github.com/Kokensha/book-ml
 
-## 川島主催のハンズオンの Repo
+# 川島主催のハンズオンの Repo
 
 - https://github.com/Kokensha/machine_learning_deep_learning_lessons
 
-## ニューラルネットワーク
 
-- https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/04_artificial_neural_network.md
-
-- https://note.com/kawashimaken/n/nfeebd2502b87
-
-## 深層学習
-
-- https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/05_deep_learning.md
-
-- https://note.com/kawashimaken/n/nc27810b609da
