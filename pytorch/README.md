@@ -35,11 +35,11 @@ https://www.nist.gov/srd/nist-special-database-19　
 からの再構築
 https://github.com/facebookresearch/qmnist
 
-## [cifar10.py](cifar10.py)
+## [cnn_cifar10.py](cnn_cifar10.py)
 
 CIFAR-10の画像分類（10種類）　https://www.cs.toronto.edu/~kriz/cifar.html
 
-## [cifar100.py](cifar100.py)
+## [cnn_cifar100.py](cnn_cifar100.py)
 
 CIFAR-100の画像分類（100種類）　https://www.cs.toronto.edu/~kriz/cifar.html
 
