@@ -10,7 +10,7 @@
  - ソースコードはこちらから引用　https://github.com/lmcinnes/umap/blob/master/examples/iris
  - for more information, please check out https://github.com/lmcinnes/umap
 
-### mlexten_iris.py
+### [mlxtend_iris.py](mlxtend_iris.py)
  - ソースコードはこちらから引用 http://rasbt.github.io/mlxtend/#examples
 
 
