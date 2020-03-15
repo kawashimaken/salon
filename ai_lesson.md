@@ -36,12 +36,12 @@
  
  - ニューラルネットワーク　PyTorch + MNIST(1)
  - https://github.com/kawashimaken/salon/tree/master/pytorch/minist.py
- 
- - ニューラルネットワーク　PyTorch + CIFAR10(1)　
- - https://github.com/kawashimaken/salon/blob/master/pytorch/cifar10.py
+ - ニューラルネットワーク　PyTorch + FashionMNIST(1)　
+ - https://github.com/kawashimaken/salon/blob/master/pytorch/fashion_mnist.py
  - ニューラルネットワーク　TensorFlow + MNIST(1)
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/mnist.py
- - ニューラルネットワーク　TensorFlow + CIFAR10(1)　
+ - ニューラルネットワーク　TensorFlow + FashionMNIST(1)　
+ - https://github.com/kawashimaken/salon/blob/master/tensorflow/fashion_mnist.py
  
 # 畳み込みニューラルネットワーク(CNN)
 
@@ -53,7 +53,7 @@
 ## 実践
 
  - 畳み込みニューラルネットワーク PyTorch シンプル（2）　
- - https://github.com/kawashimaken/salon/blob/master/pytorch/cifar10.py
+ - https://github.com/kawashimaken/salon/blob/master/pytorch/cnn_cifar10.py
  - 畳み込みニューラルネットワーク PyTorch ちょっと複雑 Option
  - 畳み込みニューラルネットワーク TensorFlow　シンプル（2）
  https://github.com/kawashimaken/salon/blob/master/tensorflow/cnn_mnist.py
