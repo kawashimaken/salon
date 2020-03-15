@@ -44,7 +44,6 @@
  - ニューラルネットワーク　PyTorch + FashionMNIST(1)　
  - https://github.com/kawashimaken/salon/blob/master/pytorch/fashion_mnist.py
  - ニューラルネットワーク　TensorFlow + MNIST(1)
- - https://github.com/kawashimaken/salon/blob/master/tensorflow/mnist.py
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/tensorflow_simplest_neural_network_program.py
  - ニューラルネットワーク　TensorFlow + FashionMNIST(1)　
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/fashion_mnist.py
