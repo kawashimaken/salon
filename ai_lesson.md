@@ -85,12 +85,17 @@
  - ディープラーニング：TensorFlow VGG16 Option
  - ディープラーニング：TensorFlow ResNet Option
  - ディープラーニング：TensorFlow GoogLeNet Option
+ 
+## 物体検出
 
  - ディープラーニング：物体検出 PyTorch Option PyTorch YOLO3
--  https://colab.research.google.com/drive/1h7_TPpBNuVXq3XbByuuFe7-hMHGwAQ0b
+ - https://colab.research.google.com/drive/1h7_TPpBNuVXq3XbByuuFe7-hMHGwAQ0b
+ - ディープラーニング：物体検出 TensorFlow Option Keras YOLO3 
+
+## セグメンテーション
+
  - ディープラーニング：セグメンテーション PyTorch Option
  - https://colab.research.google.com/drive/1TZPCUJ93YOFjMKtrbcTJYWt2FZruxk_W
- - ディープラーニング：物体検出 TensorFlow Option Keras YOLO3 
  - ディープラーニング：セグメンテーション TensorFlow Option
  - https://colab.research.google.com/drive/1C3RDumiSBkWvKwGPuBa7o0t9jPBMS4tU
 
