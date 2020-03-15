@@ -67,7 +67,7 @@
 ## オプション
  
   - 畳み込みニューラルネットワーク PyTorch ちょっと複雑
-  - 畳み込みニューラルネットワーク TensorFlow　ちょっと複雑
+  - 畳み込みニューラルネットワーク TensorFlow ちょっと複雑
  
 
 # 転移学習(Transfer Learning)
@@ -137,8 +137,8 @@
  
 ## オプション
 
- - RNN PyTorch　ちょっと複雑
- - RNN TensorFlow　ちょっと複雑
+ - RNN PyTorch ちょっと複雑
+ - RNN TensorFlow ちょっと複雑
  
 # 敵対的生成ネットワーク（GAN）
 
