@@ -23,6 +23,8 @@
  - ソースコードはこちらから引用　https://github.com/lmcinnes/umap/tree/master/examples/digits
  - for more information, please check out https://github.com/lmcinnes/umap
  
+### [plotly_3d_digits.py](plotly_3d_digits.py)
+ 
 ## 糖尿病データ
 
 ### [linear_diabetes.py](linear_diabetes.py)  線形回帰
