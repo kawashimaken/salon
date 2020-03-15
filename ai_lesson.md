@@ -56,6 +56,7 @@
  - https://github.com/kawashimaken/salon/blob/master/pytorch/cifar10.py
  - 畳み込みニューラルネットワーク PyTorch ちょっと複雑 Option
  - 畳み込みニューラルネットワーク TensorFlow　シンプル（2）
+ https://github.com/kawashimaken/salon/blob/master/tensorflow/cnn_mnist.py
  - https://github.com/kawashimaken/salon/blob/master/tensorflow/tensorflow_simplest_neural_network_program.py
  - 畳み込みニューラルネットワーク TensorFlow　ちょっと複雑 Option
 
