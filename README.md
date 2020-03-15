@@ -22,6 +22,8 @@
 # ガッツリレッスン
 
 * [機械学習・深層学習入門レッスン](ai_lesson.md)
+* React NativeとFirbaseでiOS/Androidアプリ開発入門
+* DockerでLaravel＋Vueウェブアプリ開発入門 https://github.com/kawashimaken/docker-vue-laravel 
 
 # フォルダ説明
 
