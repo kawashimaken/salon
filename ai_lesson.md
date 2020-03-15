@@ -26,10 +26,13 @@
 
 # ニューラルネットワーク(NN)
 
+## 理論
  - ニューラルネットワーク(2)
  - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/04_artificial_neural_network.md
  
  - https://note.com/kawashimaken/n/nfeebd2502b87
+
+## 実践
  
  - ニューラルネットワーク　PyTorch + MNIST(1)
  - https://github.com/kawashimaken/salon/tree/master/pytorch/minist.py
@@ -42,8 +45,13 @@
  
 # 畳み込みニューラルネットワーク(CNN)
 
+## 理論
+
  - 畳み込みニューラルネットワーク（4）　
  - https://note.com/kawashimaken/n/nc27810b609da
+
+## 実践
+
  - 畳み込みニューラルネットワーク PyTorch シンプル（2）　
  - https://github.com/kawashimaken/salon/blob/master/pytorch/cifar10.py
  - 畳み込みニューラルネットワーク PyTorch ちょっと複雑 Option
@@ -53,7 +61,12 @@
 
 # 転移学習(Transfer Learning)
 
+## 理論
+
  - 転移学習概念(1)　
+ 
+## 実践
+
  - 転移学習 PyTorch（2）　
  - 転移学習 TensorFlow 花画像の学習と認識（2）　
  - https://drive.google.com/file/d/1rJBW5amSCYlaacvGyXmZf9SElXijTVlB/view?usp=sharing
@@ -62,6 +75,7 @@
 
 # ディープラーニン(DNN)
 
+## 実践
  - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/05_deep_learning.md
  - ディープラーニング：PyTorh VGG16 Option
  - https://github.com/kawashimaken/salon/blob/master/pytorch/vgg16.py
@@ -82,7 +96,12 @@
 
 # リカレントニューラルネットワーク（RNN）
 
+## 理論
+
  - RNNの原理(1)
+ 
+## 実践
+
  - RNN PyTorch　シンプル(2) 
  - https://colab.research.google.com/drive/1IaRdJBy6s0eHKyZUwxTQlX-zGeTab2kf
  - RNN PyTorch　ちょっと複雑　Option
@@ -92,10 +111,17 @@
 
 # 敵対的生成ネットワーク（GAN）
 
+## 理論
+
  - GANの原理（1）
- - GANの原理 PyTorch + MNIST シンプル（2）
+
+## 実践
+
+ - GAN PyTorch + MNIST シンプル（2）
  - https://colab.research.google.com/drive/1OSgAURSJbvy3c31V7c8Bw6ZHKHoQuubv
- - GANの原理 PyTorch ちょっと複雑　Option
- - GANの原理 TensorFlow + MNIST シンプル（2）
+ - GAN PyTorch ちょっと複雑　Option
+ - GAN TensorFlow + MNIST シンプル（2）
  - https://colab.research.google.com/drive/1Z4hVq0i0riMekwTpY7MgsUgz2ylZAbnk
- - GANの原理 TensorFlow ちょっと複雑　Option
+ - GAN TensorFlow ちょっと複雑　Option
+ 
+# 終わり 
