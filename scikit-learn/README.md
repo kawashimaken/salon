@@ -6,7 +6,6 @@
 * [iris.py](iris.py)
 
 * [umap_iris.py](umap_iris.py)
-
  - htmlが開きます
  - ソースコードはこちらから引用　https://github.com/lmcinnes/umap/blob/master/examples/iris
  - for more information, please check out https://github.com/lmcinnes/umap
@@ -16,7 +15,6 @@
 * [digits.py](digits.py)
 
 * [umap_digits.py](umap_digits.py)
-
  - htmlが開きます
  - ソースコードはこちらから引用　https://github.com/lmcinnes/umap/tree/master/examples/digits
  - for more information, please check out https://github.com/lmcinnes/umap
