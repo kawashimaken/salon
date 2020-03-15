@@ -2,7 +2,7 @@
 
 # 下準備
 
-## TensorFlorのバージョン
+## TensorFlowのバージョン
 
 
 import tensorflow as tf
