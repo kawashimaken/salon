@@ -6,15 +6,18 @@
  - [川島の自己紹介](https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/handson/kawashimaken_introduction.md)
  - ローカルPCでPython環境の構築
  - Google Colabを使えるようにする
- 
+
+# 始まり
+
+ - 全体像　https://github.com/Kokensha/machine_learning_deep_learning_lessons
+ - 人工知能の歴史（軽く）https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/01_ai_history.md
+ - 機械学習・深層学習に必要な関連知識など　https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/02_basics.md
+
 
 # 機械学習
 
 ## 理論
 
- - 全体像　https://github.com/Kokensha/machine_learning_deep_learning_lessons
- - 人工知能の歴史（軽く）https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/01_ai_history.md
- - 機械学習・深層学習に必要な関連知識など　https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/02_basics.md
  - 機械学習の基礎(2)
  - https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/03_machine_learning.md
 
