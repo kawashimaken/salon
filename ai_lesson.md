@@ -9,7 +9,7 @@
 
 # 始まり
 
- - 全体像　https://github.com/Kokensha/machine_learning_deep_learning_lessons
+ - コース全体像（ハンズオンと共通）　https://github.com/Kokensha/machine_learning_deep_learning_lessons
  - 人工知能の歴史（軽く）https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/01_ai_history.md
  - 機械学習・深層学習に必要な関連知識など　https://github.com/Kokensha/machine_learning_deep_learning_lessons/blob/master/02_basics.md
 
