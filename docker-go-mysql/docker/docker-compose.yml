@@ -1,0 +1,31 @@
+version: "3.1"
+
+services:
+  mysql:
+    hostname: mysql
+    build: ./mysql
+    ports:
+      - "3306:3306"
+
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: password
+
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --skip-character-set-client-handshake
+
+    volumes:
+      - "./mysql/db-data:/var/lib/mysql"
+      - "./mysql/my.conf:/etc/mysql/my.conf"
+      - "./mysql/init/:/docker-entrypoint-initdb.d"
+
+  go_app:
+    links:
+      - mysql
+    build: ./golang
+    container_name: go_app
+    ports:
+      - "80:80"
+    volumes:
+      - ../go_app:/go/src/app
+    command: sh ./start_app.sh
