@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.1.0",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^8.1.0",
-    "firebase": "^7.8.0",
-    "firebase-admin": "^8.9.2",
+    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/react": "^10.0.1",
+    "@testing-library/user-event": "^10.0.1",
+    "firebase": "^7.13.1",
+    "firebase-admin": "^8.10.0",
     "http2": "^3.3.7",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1",
-    "twilio": "3.39.3",
-    "twilio-video": "2.0.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "twilio": "3.41.1",
+    "twilio-video": "2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
