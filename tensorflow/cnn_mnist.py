@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 import tensorflow as tf
 
 print(tf.__version__)
@@ -18,16 +17,14 @@ import numpy as np
 
 BATCH_SIZE = 128
 NUM_CLASSES = 10
-EPOCHS = 1
+EPOCHS = 10
 
 IMG_ROWS, IMG_COLS = 28, 28
 
 handwritten_number_names = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-
-
 #
-(train_data, train_teacher_labels), (test_data, test_teacher_labels) = mnist.load_data()
+(train_data, train_teacher_labels), (test_data,
+                                     test_teacher_labels) = mnist.load_data()
 print('ロードしたあと学習データ　train_data shape:', train_data.shape)
 print('ロードしたあと検証データ　test_data shape:', test_data.shape)
 
@@ -60,21 +57,26 @@ print('検証データ　test_data shape:', test_data.shape)
 print(test_data.shape[0], 'サンプルを検証します')
 
 # 学習用教師ラベルデータをOne-hotベクトルに変換します
-print('Keras変換前学習用教師ラベルデータ　train_teacher_labels shape:', train_teacher_labels.shape)
-train_teacher_labels = keras.utils.to_categorical(train_teacher_labels, NUM_CLASSES)
-print('Keras変換後学習用教師ラベルデータ　train_teacher_labels shape:', train_teacher_labels.shape)
+print('Keras変換前学習用教師ラベルデータ　train_teacher_labels shape:',
+      train_teacher_labels.shape)
+train_teacher_labels = keras.utils.to_categorical(train_teacher_labels,
+                                                  NUM_CLASSES)
+print('Keras変換後学習用教師ラベルデータ　train_teacher_labels shape:',
+      train_teacher_labels.shape)
 
 # 検証用教師ラベルデータをOne-hotベクトルに変換します
-print('Keras変換前検証用教師ラベルデータ　test_teacher_labels shape:', test_teacher_labels.shape)
+print('Keras変換前検証用教師ラベルデータ　test_teacher_labels shape:',
+      test_teacher_labels.shape)
 print(test_teacher_labels)
-test_teacher_labels = keras.utils.to_categorical(test_teacher_labels, NUM_CLASSES)
-print('Keras変換後検証用教師ラベルデータ　test_teacher_labels shape:', test_teacher_labels.shape)
+test_teacher_labels = keras.utils.to_categorical(test_teacher_labels,
+                                                 NUM_CLASSES)
+print('Keras変換後検証用教師ラベルデータ　test_teacher_labels shape:',
+      test_teacher_labels.shape)
 print(test_teacher_labels)
 
 model = Sequential()
-model.add(Conv2D(32, kernel_size=(3, 3),
-                 activation='relu',
-                 input_shape=input_shape))
+model.add(
+    Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
 
 model.add(Conv2D(64, (3, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
@@ -85,9 +87,10 @@ model.add(Dropout(0.5))
 model.add(Dense(NUM_CLASSES, activation='softmax'))
 model.summary()
 
-model.compile(optimizer=keras.optimizers.Adadelta(),
-             loss=keras.losses.categorical_crossentropy,
-             metrics=['accuracy'])
+model.compile(
+    optimizer=keras.optimizers.Adadelta(),
+    loss=keras.losses.categorical_crossentropy,
+    metrics=['accuracy'])
 
 print('学習させる前　train_data shape:', train_data.shape)
 print('学習させる前　test_data shape:', test_data.shape)
@@ -95,8 +98,18 @@ print('学習させる前　test_data shape:', test_data.shape)
 
 def plot_loss_accuracy_graph(fit_record):
     # 青い線で誤差の履歴をプロットします、検証時誤差は黒い線で
-    plt.plot(fit_record.history['loss'], "-D", color="blue", label="train_loss", linewidth=2)
-    plt.plot(fit_record.history['val_loss'], "-D", color="black", label="val_loss", linewidth=2)
+    plt.plot(
+        fit_record.history['loss'],
+        "-D",
+        color="blue",
+        label="train_loss",
+        linewidth=2)
+    plt.plot(
+        fit_record.history['val_loss'],
+        "-D",
+        color="black",
+        label="val_loss",
+        linewidth=2)
     plt.title('LOSS')
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
@@ -104,20 +117,39 @@ def plot_loss_accuracy_graph(fit_record):
     plt.show()
 
     # 緑の線で精度の履歴をプロットします、検証時制度は黒い線で
-    plt.plot(fit_record.history['acc'], "-o", color="green", label="train_accuracy", linewidth=2)
-    plt.plot(fit_record.history['val_acc'], "-o", color="black", label="val_accuracy", linewidth=2)
+    plt.plot(
+        fit_record.history['acc'],
+        "-o",
+        color="green",
+        label="train_accuracy",
+        linewidth=2)
+    plt.plot(
+        fit_record.history['val_acc'],
+        "-o",
+        color="black",
+        label="val_accuracy",
+        linewidth=2)
     plt.title('ACCURACY')
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend(loc="lower right")
     plt.show()
+
 
 def plot_loss_accuracy_graph(fit_record):
     # 青い線で誤差の履歴をプロットします、検証時誤差は黒い線で
-
-
-    plt.plot(fit_record.history['loss'], "-D", color="blue", label="train_loss", linewidth=2)
-    plt.plot(fit_record.history['val_loss'], "-D", color="black", label="val_loss", linewidth=2)
+    plt.plot(
+        fit_record.history['loss'],
+        "-D",
+        color="blue",
+        label="train_loss",
+        linewidth=2)
+    plt.plot(
+        fit_record.history['val_loss'],
+        "-D",
+        color="black",
+        label="val_loss",
+        linewidth=2)
     plt.title('LOSS')
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
@@ -125,21 +157,34 @@ def plot_loss_accuracy_graph(fit_record):
     plt.show()
 
     # 緑の線で精度の履歴をプロットします、検証時制度は黒い線で
-    plt.plot(fit_record.history['accuracy'], "-o", color="green", label="train_accuracy", linewidth=2)
-    plt.plot(fit_record.history['val_accuracy'], "-o", color="black", label="val_accuracy", linewidth=2)
+    plt.plot(
+        fit_record.history['accuracy'],
+        "-o",
+        color="green",
+        label="train_accuracy",
+        linewidth=2)
+    plt.plot(
+        fit_record.history['val_accuracy'],
+        "-o",
+        color="black",
+        label="val_accuracy",
+        linewidth=2)
     plt.title('ACCURACY')
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend(loc="lower right")
     plt.show()
 
+
 print('反復学習回数：', EPOCHS)
-fit_record = model.fit(train_data, train_teacher_labels,
-                       batch_size=BATCH_SIZE,
-                       epochs=EPOCHS,
-                       verbose=1,
-                       validation_data=(test_data, test_teacher_labels))
-print('fit_record',fit_record)
+fit_record = model.fit(
+    train_data,
+    train_teacher_labels,
+    batch_size=BATCH_SIZE,
+    epochs=EPOCHS,
+    verbose=1,
+    validation_data=(test_data, test_teacher_labels))
+print('fit_record', fit_record)
 
 plot_loss_accuracy_graph(fit_record)
 result_score = model.evaluate(test_data, test_teacher_labels, verbose=0)
@@ -162,14 +207,18 @@ def plot_image(data_location, predictions_array, real_teacher_labels, dataset):
     else:
         color = 'red'
     # np.maxはnumpyの関数で、指定した配列の中、最大値を取り出します、ここでは、predictions_arrayの最大値を返します
-    plt.xlabel("{} {:2.0f}% ({})".format(handwritten_number_names[predicted_label],
-                                         100 * np.max(predictions_array),
-                                         handwritten_number_names[real_teacher_labels]),
-               color=color)
+    plt.xlabel(
+        "{} {:2.0f}% ({})".format(
+            handwritten_number_names[predicted_label],
+            100 * np.max(predictions_array),
+            handwritten_number_names[real_teacher_labels]),
+        color=color)
 
 
-def plot_teacher_labels_graph(data_location, predictions_array, real_teacher_labels):
-    predictions_array, real_teacher_labels = predictions_array[data_location], real_teacher_labels[data_location]
+def plot_teacher_labels_graph(data_location, predictions_array,
+                              real_teacher_labels):
+    predictions_array, real_teacher_labels = predictions_array[
+        data_location], real_teacher_labels[data_location]
     plt.grid(False)
     plt.xticks([])
     plt.yticks([])
@@ -202,10 +251,12 @@ data_location = 77
 plt.figure(figsize=(6, 3))
 #
 plt.subplot(1, 2, 1)
-plot_image(data_location, prediction_array, convertOneHotVector2Integers(test_teacher_labels), test_data)
+plot_image(data_location, prediction_array,
+           convertOneHotVector2Integers(test_teacher_labels), test_data)
 #
 plt.subplot(1, 2, 2)
-plot_teacher_labels_graph(data_location, prediction_array, convertOneHotVector2Integers(test_teacher_labels))
+plot_teacher_labels_graph(data_location, prediction_array,
+                          convertOneHotVector2Integers(test_teacher_labels))
 _ = plt.xticks(range(10), handwritten_number_names, rotation=45)
 
 NUM_ROWS = 3
@@ -217,10 +268,12 @@ plt.subplots_adjust(wspace=0.4, hspace=0.4)
 for i in range(NUM_IMAGES):
     #
     plt.subplot(NUM_ROWS, 2 * NUM_COLS, 2 * i + 1)
-    plot_image(i, prediction_array, convertOneHotVector2Integers(test_teacher_labels), test_data)
+    plot_image(i, prediction_array,
+               convertOneHotVector2Integers(test_teacher_labels), test_data)
     #
     plt.subplot(NUM_ROWS, 2 * NUM_COLS, 2 * i + 2)
-    plot_teacher_labels_graph(i, prediction_array, convertOneHotVector2Integers(test_teacher_labels))
+    plot_teacher_labels_graph(
+        i, prediction_array, convertOneHotVector2Integers(test_teacher_labels))
     _ = plt.xticks(range(10), handwritten_number_names, rotation=45)
 
 # 検証データから画像を表示します
