@@ -1,4 +1,4 @@
-You need Docker to get started.
+# You need Docker to get started
 
 MacOS用のDockerはこちらでダウンロードできます：https://hub.docker.com/editions/community/docker-ce-desktop-mac/
 
