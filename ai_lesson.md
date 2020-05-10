@@ -80,7 +80,7 @@
 
 ## 理論
 
- - 転移学習概念(1)　
+ - 転移学習概念(1)　https://note.com/kawashimaken/n/n0c517a08f50e?magazine_key=me13f2d6e0ab8
  
 ## 実践
 
